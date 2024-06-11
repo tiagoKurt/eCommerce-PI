@@ -5,10 +5,7 @@ import { AdminModule } from './admin/admin.module';
 import { UserModule } from './user/user.module';
 
 const routes: Routes = [
-  { path: 'index', component: IndexComponent },
-  { path: 'adm', loadChildren: () => AdminModule },
-  { path: 'user', loadChildren: () => UserModule },
-  { path: '**', redirectTo: '/index', pathMatch: 'full' },
+  
 ];
 
 @NgModule({
