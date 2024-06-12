@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="card-wrapper">
+    <p-card subheader="Categoria" [style]="{ width: '360px' }">
+      <ng-template pTemplate="header">
+        <img
+          alt="Produto 1"
+          src="https://primefaces.org/cdn/primeng/images/card-ng.jpg"
+        />
+      </ng-template>
+      <div class="card-content">
+        <h3>Produto 1</h3>
+        <p>Descrição breve do produto.</p>
+        <h2 class="price">$49.99</h2>
+      </div>
+      <ng-template pTemplate="footer">
+        <div class="flex justify-content-center mt-1">
+          <p-button
+            label="Comprar"
+            class="w-full"
+            styleClass="w-full"
+          ></p-button>
+        </div>
+      </ng-template>
+    </p-card>
+
+    <!-- Adicione mais cards aqui -->
+  </div>
+</div>

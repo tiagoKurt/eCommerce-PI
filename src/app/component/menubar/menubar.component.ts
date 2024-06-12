@@ -10,25 +10,32 @@ import { RippleModule } from 'primeng/ripple';
 @Component({
   selector: 'app-menubar',
   standalone: true,
-  imports: [MenubarModule, BadgeModule, AvatarModule, InputTextModule, RippleModule, CommonModule],
+  imports: [
+    MenubarModule,
+    BadgeModule,
+    AvatarModule,
+    InputTextModule,
+    RippleModule,
+    CommonModule,
+  ],
   templateUrl: './menubar.component.html',
-  styleUrl: './menubar.component.scss'
+  styleUrls: ['./menubar.component.scss'],
 })
-export class MenubarComponent {
+export class MenubarComponent implements OnInit {
   items: MenuItem[] | undefined;
 
   ngOnInit() {
     this.items = [
       {
         label: 'Página inicial',
-        icon: 'pi-building-columns'
-        
+        icon: 'pi pi-home',
+        routerLink: '/index',
       },
       {
         label: 'Cadastro de Produtos',
-        icon: PrimeIcons.PLUS
+        icon: PrimeIcons.PLUS,
+        routerLink: '/cadastroProduto',
       },
     ];
   }
-
 }

@@ -9,9 +9,17 @@ import { MenubarComponent } from '../../component/menubar/menubar.component';
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [FormsModule, InputTextModule, FloatLabelModule, MenubarModule, ToastModule, ButtonModule, MenubarComponent],
+  imports: [
+    FormsModule,
+    InputTextModule,
+    FloatLabelModule,
+    MenubarModule,
+    ToastModule,
+    ButtonModule,
+    MenubarComponent,
+  ],
   templateUrl: './product.component.html',
-  styleUrl: './product.component.scss'
+  styleUrl: './product.component.scss',
 })
 export class ProductComponent {
   value: any;

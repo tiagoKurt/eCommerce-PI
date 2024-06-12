@@ -1,57 +1,55 @@
 <app-menubar></app-menubar>
 
 <style>
-    .centered-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh; 
-      margin: 0; 
-    }
-  
-    .flex-column {
-      display: flex;
-      flex-direction: column;
-      align-items: center; 
-    }
-  
-    .gap-2 > * + * {
-      margin-top: 1.5rem; 
-    }
-  
-  
-    p-floatLabel input {
-      border: 1px solid lightblue; 
-      padding: 0.5rem; 
-      border-radius: 4px; 
-    }
-  
-   
-    .btn-container {
-      margin-top: 0.5rem; 
-    }
-  </style>
-  
-  <div class="centered-container">
-    <div class="flex-column gap-2">
-      <p-floatLabel>
-        <input pInputText id="nome" [(ngModel)]="value" />
-        <label for="nome">Nome</label>
-      </p-floatLabel>
-      <p-floatLabel>
-        <input pInputText id="descricao" [(ngModel)]="value" />
-        <label for="descricao">Descrição</label>
-      </p-floatLabel>
-      <p-floatLabel>
-        <input pInputText id="preco" [(ngModel)]="value" />
-        <label for="preco">Preço</label>
-      </p-floatLabel>
-      <p-floatLabel>
-        <input pInputText id="quantidade" [(ngModel)]="value" />
-        <label for="quantidade">Quantidade</label>
-      </p-floatLabel>
-      <div class="btn-container">
-        <p-button label="Cadastrar" [raised]="true" severity="success"></p-button>
-      </div>
+  .centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gap-2 > * + * {
+    margin-top: 1.5rem;
+  }
+
+  p-floatLabel input {
+    border: 1px solid lightblue;
+    padding: 0.5rem;
+    border-radius: 4px;
+  }
+
+  .btn-container {
+    margin-top: 0.5rem;
+  }
+</style>
+
+<div class="centered-container">
+  <div class="flex-column gap-2">
+    <p-floatLabel>
+      <input pInputText id="nome" [(ngModel)]="value" />
+      <label for="nome">Nome</label>
+    </p-floatLabel>
+    <p-floatLabel>
+      <input pInputText id="descricao" [(ngModel)]="value" />
+      <label for="descricao">Descrição</label>
+    </p-floatLabel>
+    <p-floatLabel>
+      <input pInputText id="preco" [(ngModel)]="value" />
+      <label for="preco">Preço</label>
+    </p-floatLabel>
+    <p-floatLabel>
+      <input pInputText id="quantidade" [(ngModel)]="value" />
+      <label for="quantidade">Quantidade</label>
+    </p-floatLabel>
+    <div class="btn-container">
+      <p-button label="Cadastrar" [raised]="true" severity="success"></p-button>
     </div>
   </div>
+</div>
