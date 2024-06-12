@@ -6,6 +6,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
 import { MenubarComponent } from '../../component/menubar/menubar.component';
+
 @Component({
   selector: 'app-product',
   standalone: true,
@@ -19,17 +20,30 @@ import { MenubarComponent } from '../../component/menubar/menubar.component';
     MenubarComponent,
   ],
   templateUrl: './product.component.html',
-  styleUrl: './product.component.scss',
+  styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent {
-  value: any;
+  nome: string = '';
+  descricao: string = '';
+  preco: string = '';
+  quantidade: string = '';
+  tipoProduto: string = '';
+  imagem: string = '';
 
   // constructor(private produtoService: ProdutoService) {}
 
   // ngOnInit(): void {}
 
   // salvarProduto() {
-  //   this.produtoService.salvar(this.value).subscribe((response) => {
+  //   const produto = {
+  //     nome: this.nome,
+  //     descricao: this.descricao,
+  //     preco: this.preco,
+  //     quantidade: this.quantidade,
+  //     tipoProduto: this.tipoProduto,
+  //   };
+
+  //   this.produtoService.salvar(produto).subscribe((response) => {
   //     console.log('Produto cadastrado com sucesso!', response);
   //   }, (error) => {
   //     console.error('Erro ao cadastrar produto:', error);

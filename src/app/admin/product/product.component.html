@@ -33,20 +33,28 @@
 <div class="centered-container">
   <div class="flex-column gap-2">
     <p-floatLabel>
-      <input pInputText id="nome" [(ngModel)]="value" />
+      <input pInputText id="nome" [(ngModel)]="nome" />
       <label for="nome">Nome</label>
     </p-floatLabel>
     <p-floatLabel>
-      <input pInputText id="descricao" [(ngModel)]="value" />
+      <input pInputText id="descricao" [(ngModel)]="descricao" />
       <label for="descricao">Descrição</label>
     </p-floatLabel>
     <p-floatLabel>
-      <input pInputText id="preco" [(ngModel)]="value" />
+      <input pInputText id="preco" [(ngModel)]="preco" />
       <label for="preco">Preço</label>
     </p-floatLabel>
     <p-floatLabel>
-      <input pInputText id="quantidade" [(ngModel)]="value" />
+      <input pInputText id="quantidade" [(ngModel)]="quantidade" />
       <label for="quantidade">Quantidade</label>
+    </p-floatLabel>
+    <p-floatLabel>
+      <input pInputText id="tipoProduto" [(ngModel)]="tipoProduto" />
+      <label for="tipoProduto">Tipo do produto</label>
+    </p-floatLabel>
+    <p-floatLabel>
+      <input pInputText id="imagem" [(ngModel)]="imagem" />
+      <label for="imagem">Imagem</label>
     </p-floatLabel>
     <div class="btn-container">
       <p-button label="Cadastrar" [raised]="true" severity="success"></p-button>
