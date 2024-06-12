@@ -1,24 +1,16 @@
 import { Injectable, NgModule } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { ProductComponent } from '../admin/product/product.component';
+import { ProductComponent } from '../../admin/product/product.component';
+import { Product } from '../../types/product';
 
 
 export class AppModule { }
 
-type Product = {
-  nome: string;
-  descricao: string;
-  preco: string;
-  quantidade: string;
-  tipoProduto: string;
-  imagem: string;
-
-}
 @Injectable({
   providedIn: 'root'
 })
 export class ProdutoService {
-  apiUrl = 'http://localhost:8080/api/produto';
+  apiUrl = 'http://localhost:8080/api/produto/';
 
   constructor(private http: HttpClient) { }
 

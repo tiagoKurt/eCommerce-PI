@@ -47,12 +47,7 @@
     <p-floatLabel>
       <input pInputText id="email" [(ngModel)]="telefone" />
       <label for="email">Telefone</label>
-    </p-floatLabel>
-    <p-floatLabel>
-      <input pInputText id="tipoUsuario" [(ngModel)]="tipoUsuario" />
-      <label for="tipoUsuario">Tipo Usuario</label>
-    </p-floatLabel>
-    
+    </p-floatLabel>    
     <p-floatLabel>
       <input type="password" pInputText id="senha" [(ngModel)]="senha" />
       <label for="senha">Senha</label>
@@ -65,7 +60,7 @@
       <a routerLink="/login">
       <p-button label="Voltar" severity="contrast" />
       </a>
-      <p-button label="Cadastrar" [raised]="true" severity="success" ></p-button>
+      <p-button label="Cadastrar" [raised]="true" severity="success" (click)="salvarUsuario()"></p-button>
     </div>
   </div>
 </div>

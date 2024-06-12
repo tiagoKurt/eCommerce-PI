@@ -6,8 +6,12 @@ import { MenubarModule } from 'primeng/menubar';
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
 import { MenubarComponent } from '../../component/menubar/menubar.component';
-import { ProdutoService } from '../../services/produto.service';
+import { ProdutoService } from '../../services/produto/produto.service';
 import { Router } from 'express';
+import { MessageService } from 'primeng/api';
+
+import { LoginUsuario } from '../../types/login';
+import { LoginService } from '../../services/login/login.service';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -21,8 +25,34 @@ import { Router } from 'express';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
-  login: string = '';
-  senha: string = ''; 
 
+
+
+export class LoginComponent {
+  
+  
+  
+  
+  email: string = ''
+  senha: string = ''
+  
+  constructor(private loginService: LoginService) {}
+  
+  ngOnInit(): void {}
+  logar(){
+
+  const login : LoginUsuario =  {
+    email: this.email,
+    senha : this.senha
+}
+
+this.loginService.logar(login).subscribe(
+  (response) => {
+    console.log('Autenticado!', response);
+  },
+  (error) => {
+    console.error('Erro ao Logar:', error);
+  }
+);
+  }
 }

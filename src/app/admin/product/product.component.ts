@@ -10,7 +10,8 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http'; 
 import { MessageService } from 'primeng/api';
-import { ProdutoService } from '../../services/produto.service';
+import { ProdutoService } from '../../services/produto/produto.service';
+import { Product } from '../../types/product';
 
 
 @Component({
@@ -47,16 +48,17 @@ export class ProductComponent {
   ngOnInit(): void {}
 
   salvarProduto() {
-    const produto = {
+    const produto : Product = {
       nome: this.nome,
       descricao: this.descricao,
-      preco: this.preco,
-      quantidade: this.quantidade,
+      preco: Number(this.preco),
+      quantidade: Number(this.quantidade),
       tipoProduto: this.tipoProduto,
-      imagem: this.imagem
-    };
+      foto: this.imagem
+    };  
+
+    
   
-    console.log(produto)
     this.produtoService.salvar(produto).subscribe(
       (response) => {
         console.log('Produto cadastrado com sucesso!', response);

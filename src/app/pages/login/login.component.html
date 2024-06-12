@@ -33,15 +33,15 @@
 <div class="centered-container">
   <div class="flex-column gap-2">
     <p-floatLabel>
-      <input pInputText id="login" [(ngModel)]="login" />
-      <label for="login">Login</label>
+      <input pInputText id="email" [(ngModel)]="email" />
+      <label for="email">Email</label>
     </p-floatLabel>
     <p-floatLabel>
       <input type="password" pInputText id="senha" [(ngModel)]="senha" />
       <label for="senha">Senha</label>
     </p-floatLabel>
     <div class="btn-container">
-      <p-button label="Login" [raised]="true" severity="success"></p-button>
+      <p-button label="Login" (click)="logar()" [raised]="true" severity="success"></p-button>
       <a routerLink="/cadastroUsuario">
         <p-button label="Cadastrar" [raised]="true" severity="danger" ></p-button>
       </a>
