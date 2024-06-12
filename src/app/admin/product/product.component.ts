@@ -26,10 +26,7 @@ import { ProdutoService } from '../../services/produto.service';
     MenubarComponent,
     FileUploadModule,
     CommonModule,
-    HttpClientModule, 
     ToastModule,
-    
-
   ],
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
@@ -58,7 +55,8 @@ export class ProductComponent {
       tipoProduto: this.tipoProduto,
       imagem: this.imagem
     };
-
+  
+    console.log(produto)
     this.produtoService.salvar(produto).subscribe(
       (response) => {
         console.log('Produto cadastrado com sucesso!', response);
