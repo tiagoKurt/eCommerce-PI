@@ -1,9 +1,7 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { FloatLabelModule } from 'primeng/floatlabel';
-import { MenuItem, MessageService } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
 import { ToastModule } from 'primeng/toast';
 import { CardModule } from 'primeng/card';
@@ -17,7 +15,7 @@ import { Product } from '../../types/product';
 import { ListaCardsProdutosService } from '../../services/lista-cards-produtos/lista-cards-produtos.service';
 
 @Component({
-  selector: 'app-index-usuario',
+  selector: 'app-carrossel-lista-produtos',
   standalone: true,
   imports: [FormsModule,
     InputTextModule,
@@ -30,10 +28,43 @@ import { ListaCardsProdutosService } from '../../services/lista-cards-produtos/l
     CardsProdutosComponent,
     MenubarUsuarioComponent,
     CarouselModule, ButtonModule, TagModule],
-  templateUrl: './index-usuario.component.html',
-  styleUrl: './index-usuario.component.scss',
+  templateUrl: './carrossel-lista-produtos.component.html',
+  styleUrls: ['./carrossel-lista-produtos.component.scss'],
   providers: [ProdutoService]
 })
-export class IndexUsuarioComponent {
-  
+export class CarrosselListaProdutosComponent implements OnInit {
+  products: Product[] = [];
+
+  responsiveOptions: any[] | undefined;
+
+  constructor(private produtosService: ListaCardsProdutosService) {}
+
+  ngOnInit(): void {
+    this.responsiveOptions = [
+      {
+        breakpoint: '1024px',
+        numVisible: 3,
+        numScroll: 3
+      },
+      {
+        breakpoint: '768px',
+        numVisible: 2,
+        numScroll: 2
+      },
+      {
+        breakpoint: '560px',
+        numVisible: 1,
+        numScroll: 1
+      }
+    ];
+
+    this.produtosService.pegarProdutos().subscribe(
+      (data: Product[]) => {
+        this.products = data;
+      },
+      (error: any) => {
+        console.error('Erro ao buscar produtos:', error);
+      }
+    );
+  }
 }
