@@ -1,11 +1,5 @@
 <div class="card">
   <p-menubar [model]="items">
-    <ng-template pTemplate="start">
-      <div class="flex align-items-center gap-2">
-        <button pButton type="button" icon="pi pi-user"></button>
-        <!-- Ícone de usuário -->
-      </div>
-    </ng-template>
     <ng-template pTemplate="item" let-item let-root="root">
       <a
         [routerLink]="item.routerLink"

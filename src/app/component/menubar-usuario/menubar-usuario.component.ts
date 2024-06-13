@@ -8,20 +8,18 @@ import { CommonModule } from '@angular/common';
 import { RippleModule } from 'primeng/ripple';
 
 @Component({
-  selector: 'app-menubar',
+  selector: 'app-menubar-usuario',
   standalone: true,
-  imports: [
-    MenubarModule,
+  imports: [MenubarModule,
     BadgeModule,
     AvatarModule,
     InputTextModule,
     RippleModule,
-    CommonModule,
-  ],
-  templateUrl: './menubar.component.html',
-  styleUrls: ['./menubar.component.scss'],
+    CommonModule,],
+  templateUrl: './menubar-usuario.component.html',
+  styleUrl: './menubar-usuario.component.scss'
 })
-export class MenubarComponent implements OnInit {
+export class MenubarUsuarioComponent implements OnInit{
   items: MenuItem[] | undefined;
 
   ngOnInit() {
@@ -31,13 +29,13 @@ export class MenubarComponent implements OnInit {
         icon: 'pi pi-user',
         items: [
           {
-            label: 'Lista dos produtos',
-            icon: PrimeIcons.BOOK,
-            routerLink: '/pedidos',
+            label: 'Perfil',
+            icon: 'pi pi-user',
+            routerLink: '/perfilUsuario',
           },
           {
-            label: 'Lista dos pedidos',
-            icon: 'pi pi-chart-bar',
+            label: 'Pedidos',
+            icon: PrimeIcons.BOOK,
             routerLink: '/pedidos',
           },
           {
@@ -50,13 +48,12 @@ export class MenubarComponent implements OnInit {
       {
         label: 'Página inicial',
         icon: 'pi pi-home',
-        routerLink: '/index',
+        routerLink: '/indexUsuario',
       },
       {
-        label: 'Cadastro de Produtos',
-        icon: PrimeIcons.PLUS,
-        routerLink: '/cadastroProduto',
-      },
+        label: 'Carrinho',
+        icon: 'pi pi-shopping-cart',
+      }
     ];
   }
 

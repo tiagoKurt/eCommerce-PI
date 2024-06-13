@@ -1,0 +1,44 @@
+<div class="card">
+    <p-menubar [model]="items">
+      <ng-template pTemplate="item" let-item let-root="root">
+        <a
+          [routerLink]="item.routerLink"
+          pRipple
+          class="flex align-items-center p-menuitem-link"
+        >
+          <span [class]="item.icon"></span>
+          <span>{{ item.label }}</span>
+          <p-badge
+            *ngIf="item.badge"
+            [ngClass]="{ 'ml-auto': !root, 'ml-2': root }"
+            [value]="item.badge"
+          ></p-badge>
+          <span
+            *ngIf="item.shortcut"
+            class="ml-auto border-1 surface-border border-round surface-100 text-xs p-1"
+            >{{ item.shortcut }}</span
+          >
+          <i
+            *ngIf="item.items"
+            [ngClass]="[
+              'pi',
+              root ? 'pi-angle-down ml-2' : 'pi-angle-right ml-auto'
+            ]"
+          ></i>
+        </a>
+      </ng-template>
+      <ng-template pTemplate="end">
+        <div class="flex align-items-center gap-2 search-bar">
+          <i class="pi pi-search search-icon"></i>
+          <!-- Ícone de lupa -->
+          <input
+            type="text"
+            pInputText
+            placeholder="pesquisar"
+            class="w-8rem sm:w-auto ml-2"
+          />
+        </div>
+      </ng-template>
+    </p-menubar>
+  </div>
+  

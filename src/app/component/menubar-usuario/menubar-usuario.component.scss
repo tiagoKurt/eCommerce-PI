@@ -1,0 +1,25 @@
+.p-menubar .p-menubar-end {
+    display: flex;
+    justify-content: center; /* Centraliza a barra de pesquisa */
+    flex: 1;
+  }
+  
+  .p-menuitem-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Adiciona espaço entre o ícone e o label */
+  }
+  
+  .p-menuitem-link .pi {
+    font-size: 1.2rem; /* Tamanho dos ícones */
+  }
+  
+  .search-bar {
+    margin-left: 2rem; /* Distancia a barra de pesquisa da margem */
+  }
+  
+  .search-icon {
+    margin-right: 0.5rem; /* Afasta o ícone de lupa para o lado esquerdo */
+    font-size: 1.2rem; /* Tamanho do ícone de lupa */
+  }
+  

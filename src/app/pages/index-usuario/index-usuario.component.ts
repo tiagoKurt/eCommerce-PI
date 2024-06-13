@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
@@ -7,29 +7,26 @@ import { MenuItem, MessageService } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
-import { MenubarComponent } from '../component/menubar/menubar.component';
 import { CardModule } from 'primeng/card';
-import { CardsProdutosComponent } from '../component/cards-produtos/cards-produtos.component';
-import { MenubarUsuarioComponent } from '../component/menubar-usuario/menubar-usuario.component';
+import { MenubarUsuarioComponent } from '../../component/menubar-usuario/menubar-usuario.component';
+import { CardsProdutosComponent } from '../../component/cards-produtos/cards-produtos.component';
 
 @Component({
-  selector: 'app-index',
+  selector: 'app-index-usuario',
   standalone: true,
-  imports: [
-    FormsModule,
+  imports: [FormsModule,
     InputTextModule,
     FloatLabelModule,
     MenubarModule,
     ToastModule,
     ButtonModule,
-    MenubarComponent,
     CardModule,
     ButtonModule,
     CardsProdutosComponent,
-    MenubarUsuarioComponent
-  ],
-  providers: [MessageService],
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss'],
+    MenubarUsuarioComponent],
+  templateUrl: './index-usuario.component.html',
+  styleUrl: './index-usuario.component.scss'
 })
-export class IndexComponent {}
+export class IndexUsuarioComponent {
+
+}
