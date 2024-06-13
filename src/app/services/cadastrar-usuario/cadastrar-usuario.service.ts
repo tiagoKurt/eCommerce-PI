@@ -11,7 +11,7 @@ export class CadastrarUsuarioService {
 
   constructor(private http: HttpClient) { }
 
-  logar(usuario : CadastroUsuario) {
+  criarUsuario(usuario : CadastroUsuario) {
     return this.http.post(this.apiUrl, usuario);
   } 
 }

@@ -1,21 +1,22 @@
 <div class="container">
+@for (product of products; track product.id){
   <div class="card-wrapper">
     <p-card subheader="Categoria" [style]="{ width: '360px' }">
       <ng-template pTemplate="header">
-        <img
-          alt="Produto 1"
-          src="https://primefaces.org/cdn/primeng/images/card-ng.jpg"
+        <img   class="imagem-produto"
+          alt="{{ product.id }}"
+          src="{{ product.foto }}"
         />
       </ng-template>
       <div class="card-content">
-        <h3>Produto 1</h3>
-        <p>Descrição breve do produto.</p>
-        <h2 class="price">$49.99</h2>
+        <h3>{{ product.nome }}</h3>
+        <p>{{ product.descricao }}</p>
+        <h2 class="price">{{ product.preco }}</h2>
       </div>
       <ng-template pTemplate="footer">
         <div class="flex justify-content-center mt-1">
           <p-button
-            label="Comprar"
+            label="Adicionar ao Carrinho"
             class="w-full"
             styleClass="w-full"
           ></p-button>
@@ -25,4 +26,5 @@
 
     <!-- Adicione mais cards aqui -->
   </div>
+}
 </div>

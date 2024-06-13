@@ -56,7 +56,7 @@ export class CadastroUsuarioComponent {
     }
     
 
-    this.cadastroUsuarioService.logar(usuario).subscribe(
+    this.cadastroUsuarioService.criarUsuario(usuario).subscribe(
       (response) => {
         console.log('Usuario Criado com sucesso!', response);
       },
