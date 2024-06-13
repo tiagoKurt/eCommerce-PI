@@ -1,7 +1,10 @@
 <div class="card">
   <p-menubar [model]="items">
     <ng-template pTemplate="start">
-      <!-- Espaço reservado para conteúdo no início do menubar -->
+      <div class="flex align-items-center gap-2">
+        <button pButton type="button" icon="pi pi-user"></button>
+        <!-- Ícone de usuário -->
+      </div>
     </ng-template>
     <ng-template pTemplate="item" let-item let-root="root">
       <a
@@ -10,7 +13,7 @@
         class="flex align-items-center p-menuitem-link"
       >
         <span [class]="item.icon"></span>
-        <span class="ml-2">{{ item.label }}</span>
+        <span>{{ item.label }}</span>
         <p-badge
           *ngIf="item.badge"
           [ngClass]="{ 'ml-auto': !root, 'ml-2': root }"
@@ -31,18 +34,15 @@
       </a>
     </ng-template>
     <ng-template pTemplate="end">
-      <div class="flex align-items-center gap-2">
+      <div class="flex align-items-center gap-2 search-bar">
+        <i class="pi pi-search search-icon"></i>
+        <!-- Ícone de lupa -->
         <input
           type="text"
           pInputText
-          placeholder="Search"
-          class="w-8rem sm:w-auto"
+          placeholder="pesquisar"
+          class="w-8rem sm:w-auto ml-2"
         />
-        <p-avatar
-          image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
-          shape="circle"
-          styleClass="ml-2"
-        ></p-avatar>
       </div>
     </ng-template>
   </p-menubar>

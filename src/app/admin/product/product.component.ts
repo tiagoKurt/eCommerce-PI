@@ -8,11 +8,10 @@ import { ButtonModule } from 'primeng/button';
 import { MenubarComponent } from '../../component/menubar/menubar.component';
 import { FileUploadModule } from 'primeng/fileupload';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
 import { ProdutoService } from '../../services/produto/produto.service';
 import { Product } from '../../types/product';
-
 
 @Component({
   selector: 'app-product',
@@ -31,7 +30,7 @@ import { Product } from '../../types/product';
   ],
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
-  providers: [MessageService]
+  providers: [MessageService],
 })
 export class ProductComponent {
   nome: string = '';
@@ -41,24 +40,20 @@ export class ProductComponent {
   tipoProduto: string = '';
   imagem: string = '';
 
- 
-
   constructor(private produtoService: ProdutoService) {}
 
   ngOnInit(): void {}
 
   salvarProduto() {
-    const produto : Product = {
+    const produto: Product = {
       nome: this.nome,
       descricao: this.descricao,
       preco: Number(this.preco),
       quantidade: Number(this.quantidade),
       tipoProduto: this.tipoProduto,
-      foto: this.imagem
-    };  
+      foto: this.imagem,
+    };
 
-    
-  
     this.produtoService.salvar(produto).subscribe(
       (response) => {
         console.log('Produto cadastrado com sucesso!', response);
