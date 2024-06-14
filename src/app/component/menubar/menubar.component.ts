@@ -43,14 +43,14 @@ export class MenubarComponent implements OnInit {
           {
             label: 'Sair',
             icon: PrimeIcons.SIGN_OUT,
-             routerLink: '/login'
+            routerLink: '/login',
           },
         ],
       },
       {
         label: 'Página inicial',
         icon: 'pi pi-home',
-        routerLink: '/',
+        routerLink: '/gestor',
       },
       {
         label: 'Cadastro de Produtos',

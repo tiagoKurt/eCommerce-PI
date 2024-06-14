@@ -11,15 +11,15 @@ import { EnderecoComponent } from './user/endereco/endereco.component';
 import { CartComponent } from './user/cart/cart.component';
 
 export const routes: Routes = [
-  { path: '', component: IndexComponent },
   { path: 'admin', loadChildren: () => AdminModule },
   { path: 'user', loadChildren: () => UserModule },
   { path: 'cadastro/produto', component: ProductComponent },
   { path: 'cadastro/usuario', component: CadastroUsuarioComponent },
-  { path : 'cadastro/endereco', component: EnderecoComponent },
+  { path: 'cadastro/endereco', component: EnderecoComponent },
   { path: 'login', component: LoginComponent },
   { path: 'usuario', component: IndexUsuarioComponent },
   { path: 'pedidos', component: PedidosComponent },
-  { path : 'carrinho', component: CartComponent },
-  { path: '**', redirectTo: '/', pathMatch: 'full' },
+  { path: 'carrinho', component: CartComponent },
+  { path: 'gestor', component: IndexComponent },
+  { path: '**', redirectTo: '/cadastro/usuario', pathMatch: 'full' },
 ];

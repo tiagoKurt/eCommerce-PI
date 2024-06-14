@@ -1,46 +1,72 @@
-<div fxLayout="row" fxLayoutAlign="end">
+<!-- <div fxLayout="row" fxLayoutAlign="end">
   <div class="card">
     <div class="container-fluid">
       <div class="row justify-content-end">
         <div class="col-lg-6">
           <div class="card flex justify-content-center">
-          <p-card [style]="{ width: '620px' }">
-          <ng-template pTemplate="header">
-            <div class="custom-card-header">Subtotal (*colocar quantidade* produto):</div>
-          </ng-template>
-            <p class="m-0">
-              <label>
-                Valor total do carrinho:
-              </label>
-              <br><br>
-              <label >
-                <input type="checkbox"> Embrulhar para presente
-              </label>
-              <br><br>
-              <label>Insira o codigo de desconto:</label>
-              <input  type="text" class="custom-input-text " placeholder="AAAA-AAAA-AAAA-AAAA">
-              <button type="button" pButton icon="custom-buttom" class="p-button p-col-fixed" style="height:20px; ">
-                <i class="custom-buttom">Calcular Desconto</i>
-              </button>
-              <br><br>
-              <label>CEP: </label>
-              <input type="text" class="custom-input-text " placeholder="12345-678">
-              <button type="button" pButton icon="custom-buttom" class="p-button p-col-fixed" style="height: 20px;" (click)="calcularFrete()">
-                <i class="custom-buttom">Calcular Frete</i>
-              </button>
-              <br><br>
-              <span *ngIf="freteCalculado" class="frete-message">
+            <p-card [style]="{ width: '620px' }">
+              <ng-template pTemplate="header">
+                <div class="custom-card-header">
+                  Subtotal (*colocar quantidade* produto):
+                </div>
+              </ng-template>
+              <p class="m-0">
+                <label> Valor total do carrinho: </label>
+                <br /><br />
                 <label>
-                Correios: R$20,00 - Entrega em 10 dias.
+                  <input type="checkbox" /> Embrulhar para presente
                 </label>
-              </span>
-            </p>
-            <ng-template pTemplate="footer">
-              <div class="flex gap-3 mt-1">
-                  <p-button label="Finalizar Carrinho" class="w-full" styleClass="w-full" />
-              </div>
-          </ng-template>
-          </p-card>
-          </div>
-
-</div>
+                <br /><br />
+                <label>Insira o codigo de desconto:</label>
+                <input
+                  type="text"
+                  class="custom-input-text"
+                  placeholder="AAAA-AAAA-AAAA-AAAA"
+                />
+                <button
+                  type="button"
+                  pButton
+                  icon="custom-buttom"
+                  class="p-button p-col-fixed"
+                  style="height: 20px"
+                >
+                  <i class="custom-buttom">Calcular Desconto</i>
+                </button>
+                <br /><br />
+                <label>CEP: </label>
+                <input
+                  type="text"
+                  class="custom-input-text"
+                  placeholder="12345-678"
+                />
+                <button
+                  type="button"
+                  pButton
+                  icon="custom-buttom"
+                  class="p-button p-col-fixed"
+                  style="height: 20px"
+                  (click)="calcularFrete()"
+                >
+                  <i class="custom-buttom">Calcular Frete</i>
+                </button>
+                <br /><br />
+                <span *ngIf="freteCalculado" class="frete-message">
+                  <label> Correios: R$20,00 - Entrega em 10 dias. </label>
+                </span>
+              </p>
+              <ng-template pTemplate="footer">
+                <div class="flex gap-3 mt-1">
+                  <p-button
+                    label="Finalizar Carrinho"
+                    class="w-full"
+                    styleClass="w-full"
+                  />
+                </div>
+              </ng-template>
+            </p-card>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

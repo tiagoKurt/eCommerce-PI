@@ -15,44 +15,38 @@ import { LoginService } from '../../services/login/login.service';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule,
+  imports: [
+    FormsModule,
     InputTextModule,
     FloatLabelModule,
     MenubarModule,
     ToastModule,
     ButtonModule,
-    MenubarComponent],
+    MenubarComponent,
+  ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
 })
-
-
-
 export class LoginComponent {
-  
-  
-  
-  
-  email: string = ''
-  senha: string = ''
-  
+  email: string = '';
+  senha: string = '';
+
   constructor(private loginService: LoginService) {}
-  
+
   ngOnInit(): void {}
-  logar(){
+  logar() {
+    const login: LoginUsuario = {
+      email: this.email,
+      senha: this.senha,
+    };
 
-  const login : LoginUsuario =  {
-    email: this.email,
-    senha : this.senha
-}
-
-this.loginService.logar(login).subscribe(
-  (response) => {
-    console.log('Autenticado!', response);
-  },
-  (error) => {
-    console.error('Erro ao Logar:', error);
-  }
-);
+    this.loginService.logar(login).subscribe(
+      (response) => {
+        console.log('Autenticado!', response);
+      },
+      (error) => {
+        console.error('Erro ao Logar:', error);
+      }
+    );
   }
 }
