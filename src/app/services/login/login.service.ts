@@ -1,9 +1,8 @@
-import { Injectable, NgModule } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { LoginUsuario } from '../../types/login';
-
-
-export class AppModule { }
+import { LoginResponse } from '../../types/loginResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +12,7 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  logar(login : LoginUsuario) {
-    return this.http.post(this.apiUrl, login);
+  logar(login: LoginUsuario): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(this.apiUrl, login);
   }
 }

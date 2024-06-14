@@ -41,13 +41,14 @@
       <label for="senha">Senha</label>
     </p-floatLabel>
     <div class="btn-container">
+      <p-toast />
       <p-button
         label="Login"
         (click)="logar()"
         [raised]="true"
         severity="success"
       ></p-button>
-      <a routerLink="/cadastroUsuario">
+      <a routerLink="/cadastro/usuario">
         <p-button
           label="Cadastrar"
           [raised]="true"

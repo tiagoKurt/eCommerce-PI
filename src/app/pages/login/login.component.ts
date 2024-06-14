@@ -6,12 +6,12 @@ import { MenubarModule } from 'primeng/menubar';
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
 import { MenubarComponent } from '../../component/menubar/menubar.component';
-import { ProdutoService } from '../../services/produto/produto.service';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-
 import { LoginUsuario } from '../../types/login';
 import { LoginService } from '../../services/login/login.service';
+import { LoginResponse } from '../../types/loginResponse';
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -26,27 +26,40 @@ import { LoginService } from '../../services/login/login.service';
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
+  providers: [MessageService]
 })
 export class LoginComponent {
   email: string = '';
   senha: string = '';
+  tipoUsuario: string = '';
+  constructor(private loginService: LoginService, private router: Router, private messageService: MessageService) { }
 
-  constructor(private loginService: LoginService) {}
+  ngOnInit(): void { }
 
-  ngOnInit(): void {}
   logar() {
     const login: LoginUsuario = {
       email: this.email,
       senha: this.senha,
+      tipoUsuario: this.tipoUsuario
     };
 
     this.loginService.logar(login).subscribe(
-      (response) => {
+      (response: LoginResponse) => {
         console.log('Autenticado!', response);
+        if (response.tipoUsuario === 'GESTOR') {
+          this.router.navigate(['/gestor']);
+        } else if (response.tipoUsuario === 'CLIENTE') {
+          this.router.navigate(['/usuario']);
+        }
       },
       (error) => {
         console.error('Erro ao Logar:', error);
+        this.showError();
       }
     );
+  }
+
+  showError() {
+    this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Message Content' });
   }
 }

@@ -21,5 +21,5 @@ export const routes: Routes = [
   { path: 'pedidos', component: PedidosComponent },
   { path: 'carrinho', component: CartComponent },
   { path: 'gestor', component: IndexComponent },
-  { path: '**', redirectTo: '/cadastro/usuario', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login', pathMatch: 'full' },
 ];

@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
-
+import { MenubarUsuarioComponent } from '../../component/menubar-usuario/menubar-usuario.component';
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CardModule, ButtonModule],
+  imports: [CardModule, ButtonModule,
+    MenubarUsuarioComponent
+  ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
 })

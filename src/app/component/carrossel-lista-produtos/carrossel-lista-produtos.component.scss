@@ -1,0 +1,57 @@
+.carousel-title {
+  text-align: center; /* Centraliza o texto */
+  margin-bottom: 2rem; /* Distância do título para o carrossel */
+}
+
+.card {
+  width: 100%;
+  max-width: 1200px; /* Limita a largura máxima */
+  margin: 0 auto;
+}
+
+.p-carousel .p-carousel-content {
+  display: flex;
+  justify-content: center;
+}
+
+.card-item {
+  flex: 1 1 calc(25% - 1rem); /* Define a largura do card, garantindo 4 por linha */
+  box-sizing: border-box;
+  margin: 0.5rem; /* Ajusta a margem entre os cards */
+}
+
+.product-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%; /* Define a largura como 100% para preencher o espaço disponível */
+  height: auto; /* Mantém a proporção da imagem */
+  display: block;
+  border-radius: 8px; /* Adiciona borda arredondada */
+}
+
+.product-title {
+  font-size: 1.5rem; /* Aumenta o tamanho da fonte do título */
+  text-align: center; /* Centraliza o título */
+}
+
+.price {
+  color: #28a745; /* Cor verde para o preço */
+}
+
+@media (max-width: 1200px) {
+  .card-item {
+    flex: 1 1 calc(33.333% - 1rem); /* Ajusta para 3 cards por linha em telas menores */
+  }
+}
+
+@media (max-width: 900px) {
+  .card-item {
+    flex: 1 1 calc(50% - 1rem); /* Ajusta para 2 cards por linha em telas menores */
+  }
+}
+
+@media (max-width: 600px) {
+  .card-item {
+    flex: 1 1 100%; /* Ajusta para 1 card por linha em telas menores */
+  }
+}
