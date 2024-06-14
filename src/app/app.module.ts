@@ -9,18 +9,20 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
 import { HttpClientModule } from '@angular/common/http';
+import { CardModule } from 'primeng/card';
 
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule,
     HttpClientModule,
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     InputTextModule,
     ButtonModule,
+    CardModule,
     TableModule],
   bootstrap: [AppComponent],
 })

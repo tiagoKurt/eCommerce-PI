@@ -7,6 +7,7 @@ import { CadastroUsuarioComponent } from './pages/cadastro-usuario/cadastro-usua
 import { LoginComponent } from './pages/login/login.component';
 import { IndexUsuarioComponent } from './pages/index-usuario/index-usuario.component';
 import { PedidosComponent } from './pages/pedidos/pedidos.component';
+import { CartComponent } from './user/cart/cart.component';
 
 export const routes: Routes = [
   { path: 'index', component: IndexComponent },
@@ -17,5 +18,6 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'indexUsuario', component: IndexUsuarioComponent },
   { path: 'pedidos', component: PedidosComponent },
+  { path: 'carrinho', component: CartComponent},
   { path: '**', redirectTo: '/index', pathMatch: 'full' },
 ];

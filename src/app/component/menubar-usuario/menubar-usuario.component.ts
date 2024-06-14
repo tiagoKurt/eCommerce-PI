@@ -53,6 +53,7 @@ export class MenubarUsuarioComponent implements OnInit{
       {
         label: 'Carrinho',
         icon: 'pi pi-shopping-cart',
+        routerLink: '/carrinho',
       }
     ];
   }
