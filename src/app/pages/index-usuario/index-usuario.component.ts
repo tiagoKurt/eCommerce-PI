@@ -15,6 +15,7 @@ import { TagModule } from 'primeng/tag';
 import { ProdutoService } from '../../services/produto/produto.service';
 import { Product } from '../../types/product';
 import { ListaCardsProdutosService } from '../../services/lista-cards-produtos/lista-cards-produtos.service';
+import { CarrosselListaProdutosComponent } from '../../component/carrossel-lista-produtos/carrossel-lista-produtos.component';
 
 @Component({
   selector: 'app-index-usuario',
@@ -29,6 +30,7 @@ import { ListaCardsProdutosService } from '../../services/lista-cards-produtos/l
     ButtonModule,
     CardsProdutosComponent,
     MenubarUsuarioComponent,
+    CarrosselListaProdutosComponent,
     CarouselModule, ButtonModule, TagModule],
   templateUrl: './index-usuario.component.html',
   styleUrl: './index-usuario.component.scss',

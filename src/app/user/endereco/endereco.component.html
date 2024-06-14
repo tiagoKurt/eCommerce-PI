@@ -1,0 +1,80 @@
+<app-menubar></app-menubar>
+
+<style>
+  .centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gap-2 > * + * {
+    margin-top: 1.5rem;
+  }
+
+  p-floatLabel input {
+    border: 1px solid lightblue;
+    padding: 0.5rem;
+    border-radius: 4px;
+  }
+
+  .btn-container {
+    margin-top: 0.5rem;
+  }
+</style>
+
+<div class="centered-container">
+  <div class="flex-column gap-2">
+    <p-floatLabel>
+      <input pInputText id="cep" [(ngModel)]="cep" />
+      <label for="nome">CEP</label>
+    </p-floatLabel>
+    <span>
+    <p-button
+    label="Buscar Cep"
+    [raised]="true"
+    severity="success"
+    (click)="pegarCep()"
+    ></p-button>
+  </span>
+    <p-floatLabel>
+      <input pInputText id="rua" [(ngModel)]="rua" />
+      <label for="cep">Rua</label>
+    </p-floatLabel>
+    <p-floatLabel>
+      <input pInputText id="cidade" [(ngModel)]="cidade" />
+      <label for="cidade">Cidade</label>
+    </p-floatLabel>
+    <p-floatLabel>
+      <input pInputText id="uf" [(ngModel)]="uf" />
+      <label for="uf">UF</label>
+    </p-floatLabel>
+    <p-floatLabel>
+      <input pInputText id="numero" [(ngModel)]="numero" />
+      <label for="numero">Numero</label>
+    </p-floatLabel>
+    <p-floatLabel>
+      <input pInputText id="bairro" [(ngModel)]="bairro" />
+      <label for="bairro">Bairro</label>
+    </p-floatLabel>
+    <p-floatLabel>
+      <input pInputText id="complemento" [(ngModel)]="complemento" />
+      <label for="complemento">Complemento</label>
+    </p-floatLabel>
+    <div class="btn-container">
+      <p-button
+        label="Cadastrar"
+        [raised]="true"
+        severity="success"
+        (click)="salvarEndereco()"
+      ></p-button>
+    </div>
+  </div>
+</div>

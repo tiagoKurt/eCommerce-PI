@@ -1,7 +1,7 @@
 <div class="container">
 @for (product of products; track product.id){
   <div class="card-wrapper">
-    <p-card subheader="Categoria" [style]="{ width: '360px' }">
+    <p-card subheader="{{ product.tipoProduto }}" [style]="{ width: '360px' }">
       <ng-template pTemplate="header">
         <img   class="imagem-produto"
           alt="{{ product.id }}"

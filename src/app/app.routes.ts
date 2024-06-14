@@ -7,15 +7,19 @@ import { CadastroUsuarioComponent } from './pages/cadastro-usuario/cadastro-usua
 import { LoginComponent } from './pages/login/login.component';
 import { IndexUsuarioComponent } from './pages/index-usuario/index-usuario.component';
 import { PedidosComponent } from './pages/pedidos/pedidos.component';
+import { EnderecoComponent } from './user/endereco/endereco.component';
 
 export const routes: Routes = [
-  { path: 'index', component: IndexComponent },
-  { path: 'adm', loadChildren: () => AdminModule },
+  { path: '', component: IndexComponent },
+  { path: 'admin', loadChildren: () => AdminModule },
   { path: 'user', loadChildren: () => UserModule },
-  { path: 'cadastroProduto', component: ProductComponent },
-  { path: 'cadastroUsuario', component: CadastroUsuarioComponent },
+  { path: 'cadastro/produto', component: ProductComponent },
+  { path: 'cadastro/usuario', component: CadastroUsuarioComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'indexUsuario', component: IndexUsuarioComponent },
+  { path: 'usuario', component: IndexUsuarioComponent },
   { path: 'pedidos', component: PedidosComponent },
-  { path: '**', redirectTo: '/index', pathMatch: 'full' },
+  { path: 'cadastro/endereco', component: EnderecoComponent},
+ 
+  { path: '**', redirectTo: '/', pathMatch: 'full' },
+  
 ];
