@@ -50,12 +50,12 @@ export class MenubarComponent implements OnInit {
       {
         label: 'Página inicial',
         icon: 'pi pi-home',
-        routerLink: '/index',
+        routerLink: '/',
       },
       {
         label: 'Cadastro de Produtos',
         icon: PrimeIcons.PLUS,
-        routerLink: '/cadastroProduto',
+        routerLink: '/cadastro/produto',
       },
     ];
   }

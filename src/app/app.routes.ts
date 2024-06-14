@@ -20,5 +20,6 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'usuario', component: IndexUsuarioComponent },
   { path: 'pedidos', component: PedidosComponent },
+  { path : 'carrinho', component: CartComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

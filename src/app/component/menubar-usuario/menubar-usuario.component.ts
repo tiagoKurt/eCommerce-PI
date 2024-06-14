@@ -48,7 +48,7 @@ export class MenubarUsuarioComponent implements OnInit{
       {
         label: 'Página inicial',
         icon: 'pi pi-home',
-        routerLink: '/indexUsuario',
+        routerLink: '/usuario',
       },
       {
         label: 'Carrinho',
