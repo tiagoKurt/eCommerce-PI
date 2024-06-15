@@ -1,14 +1,56 @@
 .custom-card-header {
   text-align: center;
   font-weight: bold;
-  font-size: 40 em;
+  font-size: 1.5em;
+  margin-top: 1rem; /* Ajuste conforme necessário */
 }
 
-.opcoes:label{
-  margin-bottom: 10em;
+.custom-input-text {
+  width: 50%; /* Reduzido para metade do tamanho */
+  margin: 5px auto; /* Centraliza o input */
+  padding: 5px;
+  display: block; /* Garante que o input se comporta como um bloco */
+}
+
+.custom-button {
+  margin-top: 10px;
+  width: 50%; /* Reduzido para metade do tamanho */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .frete-message {
   font-weight: bold;
   color: white;
+  display: block; /* Garante que a mensagem se comporta como um bloco */
+  text-align: center;
+}
+
+.card-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh;
+  margin-right: 50px; /* Ajuste conforme necessário */
+}
+
+.footer-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.p-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centraliza verticalmente o conteúdo */
+  height: 100%; /* Preenche todo o espaço disponível verticalmente */
 }

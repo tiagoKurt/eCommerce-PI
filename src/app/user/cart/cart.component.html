@@ -1,71 +1,56 @@
 <app-menubar-usuario></app-menubar-usuario>
-<div fxLayout="row" fxLayoutAlign="end">
-  <div class="card">
+
+<app-produtos-carrinho></app-produtos-carrinho>
+
+<div fxLayout="row" fxLayoutAlign="center center">
+  <div class="card-container">
     <div class="container-fluid">
       <div class="row justify-content-end">
         <div class="col-lg-6">
           <div class="card flex justify-content-center">
             <p-card [style]="{ width: '620px' }">
-              <ng-template pTemplate="header">
-                <div class="custom-card-header">
-                  Subtotal (*colocar quantidade* produto):
-                </div>
-              </ng-template>
-              <p class="m-0">
-                <label> Valor total do carrinho: </label>
-                <br /><br />
-                <label>
-                  <input type="checkbox" /> Embrulhar para presente
-                </label>
-                <br /><br />
-                <label>Insira o codigo de desconto:</label>
-                <input
-                  type="text"
-                  class="custom-input-text"
-                  placeholder="AAAA-AAAA-AAAA-AAAA"
-                />
-                <button
-                  type="button"
-                  pButton
-                  icon="custom-buttom"
-                  class="p-button p-col-fixed"
-                  style="height: 20px"
-                >
-                  <i class="custom-buttom">Calcular Desconto</i>
-                </button>
-                <br /><br />
+              
+              <div class="m-0 center-content">
                 <label>CEP: </label>
                 <input
                   type="text"
                   class="custom-input-text"
                   placeholder="12345-678"
+                  [(ngModel)]="cep"
+                  (input)="formatCep()"
                 />
                 <button
                   type="button"
                   pButton
-                  icon="custom-buttom"
-                  class="p-button p-col-fixed"
-                  style="height: 20px"
+                  icon="pi pi-check"
+                  class="p-button custom-button"
                   (click)="calcularFrete()"
                 >
-                  <i class="custom-buttom">Calcular Frete</i>
+                  Calcular Frete
                 </button>
                 <br /><br />
                 <span *ngIf="freteCalculado" class="frete-message">
                   <label> Correios: R$20,00 - Entrega em 10 dias. </label>
                 </span>
-              </p>
+                <br /><br />
+                <br /><br />
+                <ng-template pTemplate="header">
+                  <div class="custom-card-header">
+                    Subtotal (*colocar quantidade* produto):
+                  </div>
+                </ng-template>
+              </div>
               <ng-template pTemplate="footer">
-                <div class="flex gap-3 mt-1">
+                <div class="footer-button">
                   <p-button
                     label="Finalizar Carrinho"
-                    class="w-full"
-                    styleClass="w-full"
-                  />
+                    class="w-full custom-button"
+                    styleClass="w-full p-button-success"
+                  ></p-button>
                 </div>
               </ng-template>
             </p-card>
-          </div> 
+          </div>
         </div>
       </div>
     </div>
