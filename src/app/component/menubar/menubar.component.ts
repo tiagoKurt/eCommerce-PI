@@ -33,12 +33,12 @@ export class MenubarComponent implements OnInit {
           {
             label: 'Lista dos produtos',
             icon: PrimeIcons.BOOK,
-            routerLink: '/pedidos',
+            routerLink: '/produtos',
           },
           {
             label: 'Lista dos pedidos',
             icon: 'pi pi-chart-bar',
-            routerLink: '/pedidos',
+            routerLink: '/produtos',
           },
           {
             label: 'Sair',
@@ -46,11 +46,6 @@ export class MenubarComponent implements OnInit {
             routerLink: '/login',
           },
         ],
-      },
-      {
-        label: 'Página inicial',
-        icon: 'pi pi-home',
-        routerLink: '/gestor',
       },
       {
         label: 'Cadastro de Produtos',

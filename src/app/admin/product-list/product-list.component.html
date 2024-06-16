@@ -1,1 +1,38 @@
-<p>product-list works!</p>
+<app-menubar></app-menubar>
+
+<div class="container">
+    @for (product of products; track product.id){
+      <div class="card-wrapper">
+        <p-card  [style]="{ width: '360px' }">
+          <ng-template pTemplate="header">
+            <img class="imagem-produto"
+              alt="{{ product.id }}"
+              src="{{ product.foto }}"
+            />
+          </ng-template>
+          <div class="card-content">
+            <h3>{{ product.nome }}</h3>
+            <p>{{ product.descricao }}</p>
+            <h2 class="price">R$ {{ product.preco }}</h2>
+          </div>
+          <ng-template pTemplate="footer">
+            <div class="card-button">
+                <p-button
+                label="Alterar"
+                class="w-full"
+                styleClass="w-full"
+                icon="pi pi-file-edit"
+              ></p-button>
+              <p-button
+                label="Deletar"
+                class="w-full"
+                styleClass="w-full"
+                icon="pi pi-trash"
+                [outlined]="true"
+              ></p-button>
+            </div>
+          </ng-template>
+        </p-card>
+      </div>
+    }
+  </div>

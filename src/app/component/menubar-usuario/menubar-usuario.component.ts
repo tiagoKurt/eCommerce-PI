@@ -41,7 +41,9 @@ export class MenubarUsuarioComponent implements OnInit{
           {
             label: 'Sair',
             icon: PrimeIcons.SIGN_OUT,
-             routerLink: '/login'
+            command: () => this.consoleClear(), 
+            routerLink: '/login'
+
           },
         ],
       },
@@ -61,5 +63,8 @@ export class MenubarUsuarioComponent implements OnInit{
   logout() {
     // Lógica de logout
     console.log('Usuário saiu');
+  }
+  consoleClear(){
+    console.clear()
   }
 }

@@ -5,7 +5,7 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 import { MenubarModule } from 'primeng/menubar';
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
-import { MenubarComponent } from '../../component/menubar/menubar.component';
+import { MenubarUsuarioComponent } from '../../component/menubar-usuario/menubar-usuario.component';
 import { FileUploadModule } from 'primeng/fileupload';
 import { CommonModule } from '@angular/common';
 import { MessageService } from 'primeng/api';
@@ -22,10 +22,10 @@ import { Endereco } from '../../types/endereco';
     MenubarModule,
     ToastModule,
     ButtonModule,
-    MenubarComponent,
     FileUploadModule,
     CommonModule,
     ToastModule,
+    MenubarUsuarioComponent
   ],
   templateUrl: './endereco.component.html',
   styleUrls: ['./endereco.component.scss'],

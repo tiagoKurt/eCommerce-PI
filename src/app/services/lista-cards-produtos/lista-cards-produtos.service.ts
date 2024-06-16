@@ -15,4 +15,8 @@ export class ListaCardsProdutosService {
   pegarProdutos(): Observable<Product[]> {
     return this.http.get<Product[]>(this.apiUrl);
   }
+
+  deletarProduto(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }

@@ -1,0 +1,68 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem; /* Espaçamento entre os cards */
+    padding: 1rem; /* Adiciona um pouco de padding para o container */
+  }
+  
+  .card-wrapper {
+    flex: 1 1 calc(25% - 1rem); /* Define a largura do card, garantindo no máximo 4 por linha */
+    box-sizing: border-box; /* Inclui padding e border no tamanho total */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os items horizontalmente */
+    margin: 0.5rem; /* Espaçamento entre os cards */
+    max-width: calc(25% - 1rem); /* Largura máxima do card */
+  }
+  
+  .card-wrapper p-card {
+    width: 100%;
+  }
+  
+  .container img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Centraliza horizontalmente a imagem dentro do card */
+  }
+  
+  .card-content {
+    text-align: center;
+  }
+  
+  .price {
+    color: #28a745; /* Cor verde para o preço */
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+  }
+  
+  .card-button {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente o botão */
+    align-items: center; /* Centraliza verticalmente o botão */
+  }
+  
+  @media (max-width: 1200px) {
+    .card-wrapper {
+      flex: 1 1 calc(33.333% - 1rem); /* Ajusta para 3 cards por linha em telas menores */
+      max-width: calc(33.333% - 1rem); /* Largura máxima do card */
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .card-wrapper {
+      flex: 1 1 calc(50% - 1rem); /* Ajusta para 2 cards por linha em telas menores */
+      max-width: calc(50% - 1rem); /* Largura máxima do card */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .card-wrapper {
+      flex: 1 1 100%; /* Ajusta para 1 card por linha em telas menores */
+      max-width: 100%; /* Largura máxima do card */
+    }
+  }
+  

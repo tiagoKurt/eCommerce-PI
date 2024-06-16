@@ -9,6 +9,7 @@ import { IndexUsuarioComponent } from './pages/index-usuario/index-usuario.compo
 import { PedidosComponent } from './pages/pedidos/pedidos.component';
 import { EnderecoComponent } from './user/endereco/endereco.component';
 import { CartComponent } from './user/cart/cart.component';
+import { ProductListComponent } from './admin/product-list/product-list.component';
 
 export const routes: Routes = [
   { path: 'admin', loadChildren: () => AdminModule },
@@ -20,6 +21,7 @@ export const routes: Routes = [
   { path: 'usuario', component: IndexUsuarioComponent },
   { path: 'pedidos', component: PedidosComponent },
   { path: 'carrinho', component: CartComponent },
-  { path: 'gestor', component: IndexComponent },
+  { path: 'gestor', component: ProductListComponent },
+  { path: 'produtos', component: ProductListComponent },
   { path: '**', redirectTo: '/login', pathMatch: 'full' },
 ];

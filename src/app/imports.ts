@@ -105,7 +105,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
-
 @NgModule({
   imports: [
     AvatarModule,
@@ -320,6 +319,5 @@ import { NgModule } from '@angular/core';
     InputIconModule,
     AutoFocusModule
   ],
-  providers: [  ]
 })
-export class importsPrimeNg {}
+export class ImportsModule {}
