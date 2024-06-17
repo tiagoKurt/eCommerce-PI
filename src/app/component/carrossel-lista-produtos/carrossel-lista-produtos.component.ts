@@ -13,7 +13,7 @@ import { TagModule } from 'primeng/tag';
 import { ProdutoService } from '../../services/produto/produto.service';
 import { Product } from '../../types/product';
 import { ListaCardsProdutosService } from '../../services/lista-cards-produtos/lista-cards-produtos.service';
-
+import { CartService } from '../../services/cart/cart.service';
 @Component({
   selector: 'app-carrossel-lista-produtos',
   standalone: true,
@@ -37,7 +37,7 @@ export class CarrosselListaProdutosComponent implements OnInit {
 
   responsiveOptions: any[] | undefined;
 
-  constructor(private produtosService: ListaCardsProdutosService) {}
+  constructor(private produtosService: ListaCardsProdutosService, private cartService : CartService) {}
 
   ngOnInit(): void {
     this.responsiveOptions = [
@@ -66,5 +66,8 @@ export class CarrosselListaProdutosComponent implements OnInit {
         console.error('Erro ao buscar produtos:', error);
       }
     );
+  }
+  adicionarCarrinho(product: Product) {
+    this.cartService.adicionarCarrinho(product);
   }
 }

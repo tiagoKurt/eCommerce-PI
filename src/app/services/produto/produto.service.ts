@@ -14,7 +14,7 @@ export class ProdutoService {
 
   constructor(private http: HttpClient) { }
 
-  salvar(produto : Product) {
+  salvar(produto : Product)  {
     return this.http.post(this.apiUrl, produto);
   }
 

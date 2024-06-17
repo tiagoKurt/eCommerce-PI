@@ -11,6 +11,7 @@ import { MessageService } from 'primeng/api';
 import { LoginUsuario } from '../../types/login';
 import { LoginService } from '../../services/login/login.service';
 import { LoginResponse } from '../../types/loginResponse';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +33,7 @@ export class LoginComponent {
   email: string = '';
   senha: string = '';
   tipoUsuario: string = '';
-  constructor(private loginService: LoginService, private router: Router, private messageService: MessageService) { }
+  constructor(private loginService: LoginService, private router: Router, private messageService: MessageService, private cookie : CookieService) { }
 
   ngOnInit(): void { }
 
@@ -46,11 +47,13 @@ export class LoginComponent {
     this.loginService.logar(login).subscribe(
       (response: LoginResponse) => {
         console.log('Autenticado!', response);
-        if (response.tipoUsuario === 'GESTOR') {
+        if (response.usuario.tipoUsuario === 'GESTOR') {
           this.router.navigate(['/gestor']);
-        } else if (response.tipoUsuario === 'CLIENTE') {
+
+        } else if (response.usuario.tipoUsuario=== 'CLIENTE') {
           this.router.navigate(['/usuario']);
         }
+        this.cookie.set('SESSION_TOKEN', response.session.id);
       },
       (error) => {
         console.error('Erro ao Logar:', error);
