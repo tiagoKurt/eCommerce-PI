@@ -36,7 +36,7 @@ export class MenubarUsuarioComponent implements OnInit{
           {
             label: 'Pedidos',
             icon: PrimeIcons.BOOK,
-            routerLink: '/pedidos',
+            routerLink: '/usuario/pedidos',
           },
           {
             label: 'Sair',

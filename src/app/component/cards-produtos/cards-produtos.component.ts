@@ -28,6 +28,7 @@ export class CardsProdutosComponent implements OnInit {
       }
     );
   }
+  
   adicionarCarrinho(product: Product) {
     this.cartService.adicionarCarrinho(product);
   }

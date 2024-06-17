@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Product } from '../../types/product';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
-import { Carrinho, CarrinhoResponseSave } from '../../types/carrinho';
+import { Carrinho, CarrinhoResponseSave, ItensCarrinho } from '../../types/carrinho';
 
 @Injectable({
   providedIn: 'root'
@@ -61,5 +61,10 @@ export class CartService {
     );
 
     return carrinho
+  }
+
+  pegarItensCarrinho(): Observable<ItensCarrinho[]> {
+    const session = this.cookie.get('SESSION_TOKEN');
+    return this.http.get<ItensCarrinho[]>(this.apiUrl + session);
   }
 }

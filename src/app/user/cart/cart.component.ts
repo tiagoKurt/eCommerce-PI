@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule } from '@angular/forms';
@@ -9,6 +9,8 @@ import { DividerModule } from 'primeng/divider';
 import { DataViewModule } from 'primeng/dataview';
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
+import { CartService } from '../../services/cart/cart.service';
+import { ItensCarrinho } from '../../types/carrinho';
 
 @Component({
   selector: 'app-cart',
@@ -26,7 +28,25 @@ import { TagModule } from 'primeng/tag';
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
 })
-export class CartComponent {
+export class CartComponent implements OnInit{
+  
+   itensCarrinho: ItensCarrinho[] =  [];
+
+  constructor( private cartService : CartService) {
+  }
+
+
+  ngOnInit(): void {
+    this.cartService.pegarItensCarrinho().subscribe(
+      (data: ItensCarrinho[]) => {
+        this.itensCarrinho = data;
+      },
+      (error: any) => {
+        console.error('Erro ao buscar produtos:', error);
+      }
+    );
+  }
+
 
   freteCalculado = false;
   cep: string = '';
