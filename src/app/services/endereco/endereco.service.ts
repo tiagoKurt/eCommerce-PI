@@ -9,7 +9,7 @@ import { SourceTextModule } from 'vm';
 })
 export class EnderecoService {
 
-  apiUrl = 'http://localhost:8080/api/endereco/';
+  apiUrl = 'http://23.111.172.66:34202/api/endereco/';
 
   constructor(private http: HttpClient) { }
 

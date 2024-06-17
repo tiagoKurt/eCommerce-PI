@@ -9,8 +9,8 @@ import { Carrinho, CarrinhoResponseSave } from '../../types/carrinho';
   providedIn: 'root'
 })
 export class CartService {
-  apiUrl = 'http://localhost:8080/api/carrinho/';
-  apiItens = "http://localhost:8080/api/item/carrinho/"
+  apiUrl = 'http://23.111.172.66:34202/api/carrinho/';
+  apiItens = "http://23.111.172.66:34202/api/item/carrinho/"
 
 
   constructor(private http: HttpClient, private cookie : CookieService) { }
@@ -23,7 +23,7 @@ export class CartService {
       (carrinho) => {
         
         if(carrinho.id_carrinho && (carrinho.status === "PENDENTE" || carrinho.status === "PARCIALMENTE_CONCLUIDO")){
-          
+            console.log("if")
           if(carrinho.itens.map((itens) => itens.id ===product.id).includes(true)){
           }else{
           const itensCarrinho = {
