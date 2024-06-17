@@ -46,28 +46,5 @@ export class ProductListComponent {
       this.products = data;
     });
   }
-  pegarOrdenadoValor(tipo: string): void {
-    this.produtosService
-      .pegarOrdenadoPreco(tipo)
-      .subscribe((data: Product[]) => {
-        console.log(data);
-        this.products = data;
-      });
-  }
-  pegarOrdenadoQuantidade(tipo: string): void {
-    this.produtosService
-      .pegarOrdenadoQuantidade(tipo)
-      .subscribe((data: Product[]) => {
-        console.log(data);
-        this.products = data;
-      });
-  }
-  pegarOrdenadoCategoria(tipo: string): void {
-    this.produtosService
-      .pegarOrdenadoCategoria(tipo)
-      .subscribe((data: Product[]) => {
-        console.log(data);
-        this.products = data;
-      });
-  }
+
 }

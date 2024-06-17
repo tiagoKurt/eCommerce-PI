@@ -22,37 +22,6 @@ export class ListaCardsProdutosService {
     }
     return this.http.get<Product[]>(url)
   }
-
-  pegarOrdenadoPreco(tipo: string): Observable<Product[]> {
-    this.apiUrl = 'http://localhost:8080/api/produto/preco';
-    if (tipo != '') {
-      this.apiUrl = this.apiUrl + '?tipoOrdenacao=' + tipo;
-    } else {
-      this.apiUrl = 'http://localhost:8080/api/produto/preco';
-    }
-    return this.http.get<Product[]>(this.apiUrl);
-  }
-
-  pegarOrdenadoQuantidade(tipo: string): Observable<Product[]> {
-    this.apiUrl = 'http://localhost:8080/api/produto/quantidade';
-    if (tipo != '') {
-      this.apiUrl = this.apiUrl + '?tipoOrdenacao=' + tipo;
-    } else {
-      this.apiUrl = 'http://localhost:8080/api/produto/quantidade';
-    }
-    return this.http.get<Product[]>(this.apiUrl);
-  }
-
-  pegarOrdenadoCategoria(tipo: string): Observable<Product[]> {
-    this.apiUrl = 'http://localhost:8080/api/produto/categoria';
-    if (tipo != '') {
-      this.apiUrl = this.apiUrl + '?tipoOrdenacao=' + tipo;
-    } else {
-      this.apiUrl = 'http://localhost:8080/api/produto/categoria';
-    }
-    return this.http.get<Product[]>(this.apiUrl);
-  }
-
   pegarProdutos(): Observable<Product[]> {
     return this.http.get<Product[]>(this.apiUrl);
   }
