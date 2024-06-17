@@ -8,7 +8,7 @@ import { LoginResponse } from '../../types/loginResponse';
   providedIn: 'root'
 })
 export class LoginService {
-  apiUrl = 'http://localhost:8080/api/usuario/login';
+  apiUrl = 'http://23.111.172.66:34202/api/usuario/login';
 
   constructor(private http: HttpClient) { }
 

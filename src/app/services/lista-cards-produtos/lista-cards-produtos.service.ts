@@ -7,17 +7,20 @@ import { Product } from '../../types/product';
   providedIn: 'root',
 })
 export class ListaCardsProdutosService {
-  apiUrl = 'http://localhost:8080/api/produto/';
+  apiUrl = 'http://23.111.172.66:34202/api/produto/';
 
   constructor(private http: HttpClient) {}
 
-  pegarOrdenado(tipo: string): Observable<Product[]> {
-    if (tipo != '') {
-      this.apiUrl = this.apiUrl + '?tipoOrdenacao=' + tipo;
-    } else {
-      this.apiUrl = 'http://localhost:8080/api/produto/';
+  pegarOrdenado(tipo : string): Observable<Product[]>{
+    let url = ''
+    if (tipo != ''){
+      url = this.apiUrl + tipo
+
     }
-    return this.http.get<Product[]>(this.apiUrl);
+    else{
+      url =  'http://23.111.172.66:34202/api/produto/'
+    }
+    return this.http.get<Product[]>(url)
   }
 
   pegarOrdenadoPreco(tipo: string): Observable<Product[]> {
