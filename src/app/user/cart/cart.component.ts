@@ -6,6 +6,10 @@ import { MenubarUsuarioComponent } from '../../component/menubar-usuario/menubar
 import { CommonModule } from '@angular/common';
 import { ProdutosCarrinhoComponent } from '../../component/produtos-carrinho/produtos-carrinho.component';
 import { DividerModule } from 'primeng/divider';
+import { DataViewModule } from 'primeng/dataview';
+import { TableModule } from 'primeng/table';
+import { TagModule } from 'primeng/tag';
+
 @Component({
   selector: 'app-cart',
   standalone: true,
@@ -14,7 +18,10 @@ import { DividerModule } from 'primeng/divider';
     FormsModule,
     CommonModule,
     ProdutosCarrinhoComponent,
-    DividerModule
+    DividerModule,
+    DataViewModule,
+    TableModule,
+    TagModule,
   ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
