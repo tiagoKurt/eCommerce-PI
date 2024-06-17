@@ -15,6 +15,8 @@ export class CartService {
 
   constructor(private http: HttpClient, private cookie : CookieService) { }
 
+  
+
   adicionarCarrinho(product : Product) {
     const session = this.cookie.get('SESSION_TOKEN');
     const carrinho = this.http.get<Carrinho>(this.apiUrl + session).subscribe(
@@ -23,7 +25,6 @@ export class CartService {
         if(carrinho.id_carrinho && (carrinho.status === "PENDENTE" || carrinho.status === "PARCIALMENTE_CONCLUIDO")){
           
           if(carrinho.itens.map((itens) => itens.id ===product.id).includes(true)){
-            console.log(carrinho.itens?.map(itens => itens.id ===product.id))
           }else{
           const itensCarrinho = {
             quantidade : 1,
@@ -49,7 +50,6 @@ export class CartService {
 
               this.http.post<Carrinho>(this.apiItens,itensCarrinho).subscribe(
                 (response) =>{
-                  console.log(response)
                 }
               )
 
@@ -59,11 +59,7 @@ export class CartService {
         }
       }
     );
-    
-    console.log(session)
-    console.log(product)
-    
-    console.log(this.apiUrl + session)
+
     return carrinho
   }
 }

@@ -40,9 +40,27 @@
   <div class="card">
     <p-table [value]="products" [tableStyle]="{'min-width': '60rem'}">
         <ng-template pTemplate="caption">
-            <div class="flex align-items-center justify-content-between">
+            <div class="flex align-items-center padding-20 justify-content-between">
                 Products
-                <p-button icon="pi pi-refresh" />
+                <div class="botoes-header">
+                Ordenar por: 
+                <p-button 
+                icon="pi pi-money-bill" 
+                (click)="pegarOrdenado('preco')" />
+                -
+                <p-button icon="pi pi-tag" 
+                (click)="pegarOrdenado('categoria')"
+                />
+                -
+                <p-button icon="pi pi-truck" 
+                (click)="pegarOrdenado('quantidade')"
+                />
+                -
+                <p-button icon="pi pi-refresh" 
+                (click)="pegarOrdenado('')"
+                />
+                
+              </div>
             </div>
         </ng-template>
         <ng-template pTemplate="header">

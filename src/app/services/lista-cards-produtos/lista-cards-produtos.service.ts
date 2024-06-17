@@ -12,6 +12,15 @@ export class ListaCardsProdutosService {
   
   constructor(private http: HttpClient) {}
 
+  pegarOrdenado(tipo : string): Observable<Product[]>{
+    if (tipo != ''){
+      this.apiUrl = this.apiUrl + "?tipoOrdenacao="+tipo
+    }
+    else{
+      this.apiUrl =  'http://localhost:8080/api/produto/'
+    }
+    return this.http.get<Product[]>(this.apiUrl)
+  }
   pegarProdutos(): Observable<Product[]> {
     return this.http.get<Product[]>(this.apiUrl);
   }

@@ -8,6 +8,7 @@ import { ListaCardsProdutosService } from '../../services/lista-cards-produtos/l
 import { Product } from '../../types/product';
 import { ProdutoService } from '../../services/produto/produto.service';
 import { TableModule } from 'primeng/table';
+import { Observable } from 'rxjs';
 
 
 
@@ -36,5 +37,12 @@ export class ProductListComponent {
       }
     );
   }
-
+  pegarOrdenado(tipo : string) : void{
+    this.produtosService.pegarOrdenado(tipo).subscribe(
+      (data : Product[]) =>{
+        console.log(data)
+       this.products = data;
+      }
+    )
+  }
 }
