@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { MenubarUsuarioComponent } from '../../component/menubar-usuario/menubar-usuario.component';
 import { CommonModule } from '@angular/common';
 import { ProdutosCarrinhoComponent } from '../../component/produtos-carrinho/produtos-carrinho.component';
+import { DividerModule } from 'primeng/divider';
 @Component({
   selector: 'app-cart',
   standalone: true,
@@ -12,13 +13,14 @@ import { ProdutosCarrinhoComponent } from '../../component/produtos-carrinho/pro
     MenubarUsuarioComponent,
     FormsModule,
     CommonModule,
-    ProdutosCarrinhoComponent
+    ProdutosCarrinhoComponent,
+    DividerModule
   ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
 })
 export class CartComponent {
-  
+
   freteCalculado = false;
   cep: string = '';
 
