@@ -63,8 +63,8 @@ export class CartService {
     return carrinho
   }
 
-  pegarItensCarrinho(): Observable<ItensCarrinho[]> {
+  pegarItensCarrinho(): Observable<Carrinho> {
     const session = this.cookie.get('SESSION_TOKEN');
-    return this.http.get<ItensCarrinho[]>(this.apiUrl + session);
+    return this.http.get<Carrinho>(this.apiUrl + session);
   }
 }

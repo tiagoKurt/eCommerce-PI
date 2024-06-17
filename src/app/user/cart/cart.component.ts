@@ -10,7 +10,7 @@ import { DataViewModule } from 'primeng/dataview';
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { CartService } from '../../services/cart/cart.service';
-import { ItensCarrinho } from '../../types/carrinho';
+import { Carrinho, ItensCarrinho } from '../../types/carrinho';
 
 @Component({
   selector: 'app-cart',
@@ -38,8 +38,8 @@ export class CartComponent implements OnInit{
 
   ngOnInit(): void {
     this.cartService.pegarItensCarrinho().subscribe(
-      (data: ItensCarrinho[]) => {
-        this.itensCarrinho = data;
+      (data: Carrinho) => {
+        this.itensCarrinho = data.itens;
       },
       (error: any) => {
         console.error('Erro ao buscar produtos:', error);
