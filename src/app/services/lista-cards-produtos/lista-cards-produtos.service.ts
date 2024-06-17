@@ -16,6 +16,7 @@ export class ListaCardsProdutosService {
     let url = ''
     if (tipo != ''){
       url = this.apiUrl + tipo
+      
     }
     else{
       url =  'http://localhost:8080/api/produto/'
