@@ -1,6 +1,6 @@
 <app-menubar></app-menubar>
 
-<div class="container">
+<!--<div class="container">
     @for (product of products; track product.id){
       <div class="card-wrapper">
         <p-card  [style]="{ width: '360px' }">
@@ -35,4 +35,38 @@
         </p-card>
       </div>
     }
-  </div>
+  </div>-->
+
+  <div class="card">
+    <p-table [value]="products" [tableStyle]="{'min-width': '60rem'}">
+        <ng-template pTemplate="caption">
+            <div class="flex align-items-center justify-content-between">
+                Products
+                <p-button icon="pi pi-refresh" />
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Nome</th>
+                <th>Imagem</th>
+                <th>Preço</th>
+                <th>Categoria</th>
+                <th>Estoque</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+            <tr>
+                <td>{{product.nome}}</td>
+                <td>{{product.foto}}</td>
+                <td>{{product.preco | currency:'BRL'}}</td>
+                <td>{{product.tipoProduto}}</td>
+                <td>{{product.quantidade}}</td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="flex align-items-center justify-content-between">
+                No total são {{products ? products.length : 0 }} produtos.
+            </div>
+        </ng-template>
+    </p-table>
+</div>

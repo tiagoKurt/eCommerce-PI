@@ -7,12 +7,14 @@ import { CommonModule } from '@angular/common';
 import { ListaCardsProdutosService } from '../../services/lista-cards-produtos/lista-cards-produtos.service';
 import { Product } from '../../types/product';
 import { ProdutoService } from '../../services/produto/produto.service';
+import { TableModule } from 'primeng/table';
+
 
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [MenubarComponent, ButtonModule, TagModule, CommonModule, CardModule],
+  imports: [MenubarComponent, ButtonModule, TagModule, CommonModule, CardModule, TableModule],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss'
 })

@@ -4,29 +4,31 @@
 
 <div fxLayout="row" fxLayoutAlign="center center">
   <div class="card-container">
-    <div class="card">
-      <p>
-        <input type="checkbox">
-        imagem
-        produto
-        valor
-      </p>
-      <p-divider />
-      <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-          voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
-      </p>
-      <p-divider />
-      <p>
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
-          officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
-      </p>
-      <p-divider />
-      <p>
-          Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis
-          voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Donec vel volutpat ipsum. Integer nunc magna, posuere ut tincidunt eget, egestas vitae sapien. Morbi dapibus luctus odio.
-      </p>
-  </div>
+    <p-dataView #dv >
+      <ng-template pTemplate="list" let-product>
+          <div class="grid grid-nogutter">
+              <div class="col-12" *ngFor="let item of product; let first = first" class="col-12">
+                  <div class="flex flex-column sm:flex-row sm:align-items-center p-4 gap-3" [ngClass]="{ 'border-top-1 surface-border': !first }">
+                      <div class="flex flex-column md:flex-row justify-content-between md:align-items-center flex-1 gap-4">
+                          <div class="flex flex-row md:flex-column justify-content-between align-items-start gap-2">
+                              <div>
+                                  <span class="font-medium text-secondary text-sm">{{ item.categoria }}</span>
+                                  <div class="text-lg font-medium text-900 mt-2">{{ item.nome }}</div>
+                              </div>
+                          </div>
+                          <div class="flex flex-column md:align-items-end gap-5">
+                              <span class="text-xl font-semibold text-900">{{ '$' + item.preco }}</span>
+                              <div class="flex flex-row-reverse md:flex-row gap-2">
+                                  <p-button icon="pi pi-heart" [outlined]="true" />
+                                  <p-button icon="pi pi-shopping-cart" class="flex-auto md:flex-initial white-space-nowrap" label="Buy Now" [disabled]="item.inventoryStatus === 'OUTOFSTOCK'" />
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </ng-template>
+  </p-dataView>
     <div class="container-fluid">
       <div class="row justify-content-end">
         <div class="col-lg-6">
