@@ -13,13 +13,14 @@ export class ListaCardsProdutosService {
   constructor(private http: HttpClient) {}
 
   pegarOrdenado(tipo : string): Observable<Product[]>{
+    let url = ''
     if (tipo != ''){
-      this.apiUrl = this.apiUrl + "?tipoOrdenacao="+tipo
+      url = this.apiUrl + tipo
     }
     else{
-      this.apiUrl =  'http://localhost:8080/api/produto/'
+      url =  'http://localhost:8080/api/produto/'
     }
-    return this.http.get<Product[]>(this.apiUrl)
+    return this.http.get<Product[]>(url)
   }
   pegarProdutos(): Observable<Product[]> {
     return this.http.get<Product[]>(this.apiUrl);
