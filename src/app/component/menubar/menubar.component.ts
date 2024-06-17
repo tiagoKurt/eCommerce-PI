@@ -31,21 +31,21 @@ export class MenubarComponent implements OnInit {
         icon: 'pi pi-user',
         items: [
           {
-            label: 'Lista dos produtos',
-            icon: PrimeIcons.BOOK,
-            routerLink: '/produtos',
-          },
-          {
-            label: 'Lista dos pedidos',
-            icon: 'pi pi-chart-bar',
-            routerLink: '/produtos',
-          },
-          {
             label: 'Sair',
             icon: PrimeIcons.SIGN_OUT,
             routerLink: '/login',
           },
         ],
+      },
+      {
+        label: 'Lista dos produtos',
+        icon: PrimeIcons.BOOK,
+        routerLink: '/gestor/produtos',
+      },
+      {
+        label: 'Lista dos pedidos',
+        icon: 'pi pi-chart-bar',
+        routerLink: '/gestor/pedidos',
       },
       {
         label: 'Cadastro de Produtos',

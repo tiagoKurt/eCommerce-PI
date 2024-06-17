@@ -8,7 +8,7 @@ import { ButtonModule } from 'primeng/button';
 import { MenubarComponent } from '../../component/menubar/menubar.component';
 import { FileUploadModule } from 'primeng/fileupload';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import {} from '@angular/common/http';
 import { MessageService } from 'primeng/api';
 import { ProdutoService } from '../../services/produto/produto.service';
 import { Product } from '../../types/product';

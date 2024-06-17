@@ -1,19 +1,18 @@
 import { Component } from '@angular/core';
-import { MenubarComponent } from '../../component/menubar/menubar.component';
-import { CardModule } from 'primeng/card';
+import { MenubarComponent } from '../menubar/menubar.component';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
 import { CommonModule } from '@angular/common';
-import { ListaCardsProdutosService } from '../../services/lista-cards-produtos/lista-cards-produtos.service';
-import { Product } from '../../types/product';
-import { ProdutoService } from '../../services/produto/produto.service';
+import { CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
-import { Observable } from 'rxjs';
+import { Product } from '../../types/product';
+import { ListaCardsProdutosService } from '../../services/lista-cards-produtos/lista-cards-produtos.service';
 
 @Component({
-  selector: 'app-product-list',
+  selector: 'app-lista-pedidos',
   standalone: true,
   imports: [
+    MenubarComponent,
     MenubarComponent,
     ButtonModule,
     TagModule,
@@ -21,10 +20,10 @@ import { Observable } from 'rxjs';
     CardModule,
     TableModule,
   ],
-  templateUrl: './product-list.component.html',
-  styleUrl: './product-list.component.scss',
+  templateUrl: './lista-pedidos.component.html',
+  styleUrl: './lista-pedidos.component.scss',
 })
-export class ProductListComponent {
+export class ListaPedidosComponent {
   id: number = 0;
   products: Product[] = [];
 

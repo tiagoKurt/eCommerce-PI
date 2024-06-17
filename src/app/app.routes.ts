@@ -10,6 +10,7 @@ import { PedidosComponent } from './pages/pedidos/pedidos.component';
 import { EnderecoComponent } from './user/endereco/endereco.component';
 import { CartComponent } from './user/cart/cart.component';
 import { ProductListComponent } from './admin/product-list/product-list.component';
+import { ListaPedidosComponent } from './component/lista-pedidos/lista-pedidos.component';
 
 export const routes: Routes = [
   { path: 'admin', loadChildren: () => AdminModule },
@@ -19,9 +20,9 @@ export const routes: Routes = [
   { path: 'cadastro/endereco', component: EnderecoComponent },
   { path: 'login', component: LoginComponent },
   { path: 'usuario', component: IndexUsuarioComponent },
-  { path: 'pedidos', component: PedidosComponent },
+  { path: 'gestor/pedidos', component: ListaPedidosComponent },
   { path: 'carrinho', component: CartComponent },
   { path: 'gestor', component: ProductListComponent },
-  { path: 'produtos', component: ProductListComponent },
+  { path: 'gestor/produtos', component: ProductListComponent },
   { path: '**', redirectTo: '/login', pathMatch: 'full' },
 ];

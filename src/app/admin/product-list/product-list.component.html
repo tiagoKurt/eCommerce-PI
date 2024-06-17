@@ -37,54 +37,75 @@
     }
   </div>-->
 
-  <div class="card">
-    <p-table [value]="products" [tableStyle]="{'min-width': '60rem'}">
-        <ng-template pTemplate="caption">
-            <div class="flex align-items-center padding-20 justify-content-between">
-                Products
-                <div class="botoes-header">
-                Ordenar por: 
-                <p-button 
-                icon="pi pi-money-bill" 
-                (click)="pegarOrdenado('preco')" />
-                -
-                <p-button icon="pi pi-tag" 
-                (click)="pegarOrdenado('categoria')"
-                />
-                -
-                <p-button icon="pi pi-truck" 
-                (click)="pegarOrdenado('quantidade')"
-                />
-                -
-                <p-button icon="pi pi-refresh" 
-                (click)="pegarOrdenado('')"
-                />
-                
-              </div>
-            </div>
-        </ng-template>
-        <ng-template pTemplate="header">
-            <tr>
-                <th>Nome</th>
-                <th>Imagem</th>
-                <th>Preço</th>
-                <th>Categoria</th>
-                <th>Estoque</th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-product>
-            <tr>
-                <td>{{product.nome}}</td>
-                <td>{{product.foto}}</td>
-                <td>{{product.preco | currency:'BRL'}}</td>
-                <td>{{product.tipoProduto}}</td>
-                <td>{{product.quantidade}}</td>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="summary">
-            <div class="flex align-items-center justify-content-between">
-                No total são {{products ? products.length : 0 }} produtos.
-            </div>
-        </ng-template>
-    </p-table>
+<div class="card">
+  <p-table [value]="products" [tableStyle]="{ 'min-width': '60rem' }">
+    <ng-template pTemplate="caption">
+      <div class="flex align-items-center padding-20 justify-content-between">
+        Produtos
+        <div class="botoes-header">
+          Ordenar por:
+          <p-button
+            icon="pi pi-money-bill"
+            (click)="pegarOrdenadoValor('preco')"
+          />
+          -
+          <p-button
+            icon="pi pi-tag"
+            (click)="pegarOrdenadoCategoria('categoria')"
+          />
+          -
+          <p-button
+            icon="pi pi-truck"
+            (click)="pegarOrdenadoQuantidade('quantidade')"
+          />
+          -
+          <p-button icon="pi pi-refresh" (click)="pegarOrdenado('')" />
+        </div>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nome</th>
+        <th>Imagem</th>
+        <th>Preço</th>
+        <th>Categoria</th>
+        <th>Estoque</th>
+        <th>Ações</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td>{{ product.nome }}</td>
+        <td>
+          <img
+            [src]="product.foto"
+            alt="{{ product.nome }}"
+            style="max-width: 100px; max-height: 100px"
+          />
+        </td>
+        <td>{{ product.preco | currency : "BRL" }}</td>
+        <td>{{ product.tipoProduto }}</td>
+        <td>{{ product.quantidade }}</td>
+
+        <td>
+          <div class="botoes-acoes">
+            <p-button
+              icon="pi pi-file-edit"
+              class="p-button-rounded p-button-outlined"
+              [outlined]="true"
+            ></p-button>
+            <p-button
+              icon="pi pi-trash"
+              class="p-button-rounded p-button-outlined"
+            ></p-button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      <div class="flex align-items-center justify-content-between">
+        No total são {{ products ? products.length : 0 }} produtos.
+      </div>
+    </ng-template>
+  </p-table>
 </div>
