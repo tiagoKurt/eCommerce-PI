@@ -5,10 +5,11 @@ import { ListaCardsProdutosService } from '../../services/lista-cards-produtos/l
 import { Product } from '../../types/product';
 import { CartService } from '../../services/cart/cart.service';
 import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 @Component({
   selector: 'app-cards-produtos',
   standalone: true,
-  imports: [CardModule, ButtonModule],
+  imports: [CardModule, ButtonModule,ToastModule],
   templateUrl: './cards-produtos.component.html',
   styleUrl: './cards-produtos.component.scss',
   providers: [MessageService],
