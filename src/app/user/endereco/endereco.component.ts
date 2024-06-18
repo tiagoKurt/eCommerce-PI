@@ -102,7 +102,7 @@ export class EnderecoComponent {
       (response) => {
         this.messageService.add({ severity: 'success', summary: 'Sucesso!', detail: 'Endereço foi cadastrado com sucesso!' });
         setTimeout(() => {
-          this.router.navigate(['/usuario/endereco']);
+          this.router.navigate(['/usuario/endereco'], { state: { data: this.carrinho } });
         }, 1500);
       },
       (error) => {
