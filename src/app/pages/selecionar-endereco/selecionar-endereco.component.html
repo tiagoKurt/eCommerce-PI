@@ -3,16 +3,16 @@
 <div class="container">
   @for (enderecos of enderecos; track enderecos.id){
     <div class="card-wrapper">
-      <p-card [style]="{ width: '360px' }">
+      <p-card [style]="{ width: '360px' }" header="Selecione um endereço">
         <ng-template pTemplate="header">
         </ng-template>
         <div class="card-content">
-          <h3>{{ enderecos.cep }}</h3>
-          <p>{{ enderecos.rua }}</p>
-          <h2 class="cidade">{{ enderecos.cidade }}</h2>
-          <h2 class="bairro">{{ enderecos.bairro }}</h2>
-          <h2 class="complemento">{{ enderecos.complemento }}</h2>
-          <h2 class="uf">{{ enderecos.uf }}</h2>
+          <h3>CEP: <span class="highlight">{{ enderecos.cep }}</span></h3>
+          <h3>Rua: <span class="highlight">{{ enderecos.rua }}</span></h3>
+          <h3 class="cidade">Cidade: <span class="highlight">{{ enderecos.cidade }}</span></h3>
+          <h3 class="bairro">Bairro: <span class="highlight">{{ enderecos.bairro }}</span></h3>
+          <h3 class="complemento">Complemento: <span class="highlight">{{ enderecos.complemento }}</span></h3>
+          <h3 class="uf">UF: <span class="highlight">{{ enderecos.uf }}</span></h3>
         </div>
         <ng-template pTemplate="footer">
           <div class="card-button">
@@ -41,3 +41,31 @@
   <p-button icon="pi pi-undo" label="Voltar" [raised]="true" severity="secondary" [outlined]="true" (onClick)="voltarCarrinho()"></p-button>
   <p-button icon="pi pi-plus" label="Cadastrar endereço" [raised]="true" severity="secondary" (onClick)="irParaCadastroEndereco()"></p-button>
 </div>
+
+<style>
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .card-wrapper {
+    flex: 1;
+    margin: 10px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .card-content {
+    text-align: left;
+  }
+
+  .card-button {
+    display: flex;
+    justify-content: center;
+  }
+
+
+  .highlight {
+    color: #9b6dd6; 
+  }
+</style>

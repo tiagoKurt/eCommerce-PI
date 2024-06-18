@@ -45,7 +45,7 @@ export class EnderecoComponent {
   bairro : string = ''; 
   session_token : string = '';
   id : number = 0
-  constructor(private enderecoService: EnderecoService, private router: Router, private cookie : CookieService) {}
+  constructor(private enderecoService: EnderecoService, private router: Router, private cookie : CookieService, private messageService : MessageService) {}
 
   ngOnInit(): void {}
 
@@ -67,25 +67,32 @@ export class EnderecoComponent {
 
 
   salvarEndereco() {
+    if (!this.cep || !this.rua || !this.cidade || !this.uf || !this.numero || !this.bairro) {
+      this.messageService.add({ severity: 'error', summary: 'Erro!', detail: 'Todos os campos devem ser preenchidos!' });
+      return;
+    }
+
     const endereco: Endereco = {
-      id : this.id,
-      cep : this.cep,
+      id: this.id,
+      cep: this.cep,
       rua: this.rua,
       cidade: this.cidade, 
       uf: this.uf, 
       numero: this.numero, 
-      complemento:this.complemento ,
-      bairro : this.bairro,
-      session_token : this.cookie.get('SESSION_TOKEN'),
+      complemento: this.complemento,
+      bairro: this.bairro,
+      session_token: this.cookie.get('SESSION_TOKEN'),
     };
 
     this.enderecoService.salvar(endereco).subscribe(
       (response) => {
-        this.router.navigate(['/usuario/endereco'])
-        
+        this.messageService.add({ severity: 'success', summary: 'Sucesso!', detail: 'Endereço foi cadastrado com sucesso!' });
+        setTimeout(() => {
+          this.router.navigate(['/usuario/endereco']);
+        }, 1500);
       },
       (error) => {
-        console.error('Erro ao cadastrar endereco:', error);
+        this.messageService.add({ severity: 'error', summary: 'Erro!', detail: 'Endereço não foi cadastrado!' });
       }
     );
   }

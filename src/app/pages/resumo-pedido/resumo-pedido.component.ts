@@ -53,4 +53,8 @@ export class ResumoPedidoComponent implements OnInit{
    this.pedidoService.fazerPedido(this.enderecos, this.total, this.carrinho)
    this.router.navigate(['/usuario'])
   }
+
+  alterarEndereco(){
+    this.router.navigate(['/usuario/endereco'])
+  }
 }

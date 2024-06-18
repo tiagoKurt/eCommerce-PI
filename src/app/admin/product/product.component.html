@@ -33,7 +33,10 @@
 <div class="centered-container">
   <div class="flex-column gap-2">
     <p-floatLabel>
-      <input pInputText id="nome" [(ngModel)]="nome" />
+      <input pInputText id="alpha" 
+      [(ngModel)]="nome" 
+      pattern="[a-zA-Z ]*" 
+      (keypress)="validateNameInput($event)" />
       <label for="nome">Nome</label>
     </p-floatLabel>
     <p-floatLabel>
@@ -41,11 +44,11 @@
       <label for="descricao">Descrição</label>
     </p-floatLabel>
     <p-floatLabel>
-      <input pInputText id="preco" [(ngModel)]="preco" />
+      <input pInputText id="preco" type="number" [(ngModel)]="preco" />
       <label for="preco">Preço</label>
     </p-floatLabel>
     <p-floatLabel>
-      <input pInputText id="quantidade" [(ngModel)]="quantidade" />
+      <input pInputText id="quantidade" type="number" [(ngModel)]="quantidade" />
       <label for="quantidade">Quantidade</label>
     </p-floatLabel>
     <p-floatLabel>
@@ -57,11 +60,13 @@
       <label for="imagem">Imagem</label>
     </p-floatLabel>
     <div class="btn-container">
+      <p-toast />
       <p-button
         label="Cadastrar"
         [raised]="true"
         severity="success"
         (click)="salvarProduto()"
+        icon="pi pi-plus"
       ></p-button>
     </div>
   </div>

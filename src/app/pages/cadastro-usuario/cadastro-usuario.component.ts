@@ -13,6 +13,7 @@ import { MessageService } from 'primeng/api';
 import { CadastroUsuario } from '../../types/cadastro-usuarios';
 import { CadastrarUsuarioService } from '../../services/cadastrar-usuario/cadastrar-usuario.service';
 import { Router } from '@angular/router';
+import { RippleModule } from 'primeng/ripple';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -28,6 +29,7 @@ import { Router } from '@angular/router';
     MenubarComponent,
     InputMaskModule,
     DropdownModule,
+    RippleModule
   ],
   templateUrl: './cadastro-usuario.component.html',
   styleUrl: './cadastro-usuario.component.scss',
@@ -41,7 +43,6 @@ export class CadastroUsuarioComponent {
   telefone: string = '';
   tipoUsuario: string = 'CLIENTE';
   senha: string = '';
-  confirmarSenha: string = '';
   value: string = '';
 
   constructor(
@@ -54,6 +55,11 @@ export class CadastroUsuarioComponent {
   }
 
   salvarUsuario() {
+    if (!this.nome || !this.cpf || !this.email || !this.telefone || !this.senha ) {
+      this.messageService.add({ severity: 'error', summary: 'Erro!', detail: 'Erro ao cadastrar usuário! verifique os campos.' });
+      return;
+    }
+
     const usuario: CadastroUsuario = {
       nome: this.nome,
       cpf: this.cpf,
@@ -66,10 +72,12 @@ export class CadastroUsuarioComponent {
     this.cadastroUsuarioService.criarUsuario(usuario).subscribe(
       (response) => {
         this.messageService.add({ severity: 'success', summary: 'Sucesso!', detail: 'Usuario foi cadastrado com sucesso!' });
-        this.router.navigate(['/login']);
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+        }, 1500);
       },
       (error) => {
-        console.error('Erro ao Criar Usuario:', error);
+        this.messageService.add({ severity: 'error', summary: 'Erro!', detail: 'Erro ao cadastrar usuário! verifique os campos.' });
       }
     );
   }
@@ -86,5 +94,4 @@ export class CadastroUsuarioComponent {
       event.preventDefault();
     }
   }
-
 }
