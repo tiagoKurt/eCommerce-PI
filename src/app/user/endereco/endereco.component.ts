@@ -13,6 +13,7 @@ import { EnderecoService } from '../../services/endereco/endereco.service';
 import { Endereco } from '../../types/endereco';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { InputMaskModule } from 'primeng/inputmask';
 
 @Component({
   selector: 'app-endereco',
@@ -27,7 +28,8 @@ import { CookieService } from 'ngx-cookie-service';
     FileUploadModule,
     CommonModule,
     ToastModule,
-    MenubarUsuarioComponent
+    MenubarUsuarioComponent,
+    InputMaskModule
   ],
   templateUrl: './endereco.component.html',
   styleUrls: ['./endereco.component.scss'],

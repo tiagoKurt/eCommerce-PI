@@ -17,7 +17,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { ProdutoService } from '../../services/produto/produto.service';
 import { Product } from '../../types/product';
-import { SourceTextModule } from 'vm';
+import { InputMaskModule } from 'primeng/inputmask';
 @Component({
   selector: 'app-cart',
   standalone: true,
@@ -31,7 +31,7 @@ import { SourceTextModule } from 'vm';
     TableModule,
     TagModule,
     CheckboxModule,
-    InputTextModule, FloatLabelModule
+    InputTextModule, FloatLabelModule, InputMaskModule
   ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
@@ -41,6 +41,8 @@ export class CartComponent implements OnInit{
   checked: boolean = false;
 
   itensCarrinho: ItensCarrinho[] =  [];
+  idCarrinho : number =  0;
+
 
   carrinho : Carrinho = {
     itens : [],
@@ -54,6 +56,30 @@ export class CartComponent implements OnInit{
   constructor( private productService : ProdutoService, private cartService : CartService, private router: Router) {
   }
 
+
+  excluirCarrinho() {
+    const idCarrinho = this.carrinho.id_carrinho;
+    if (idCarrinho) {
+      this.cartService.excluirItensCarrinho(idCarrinho).subscribe(
+        () => {
+          this.cartService.excluirCarrinho(idCarrinho).subscribe(
+            () => {
+              console.log('Carrinho excluído com sucesso');
+              // Aqui você pode adicionar lógica adicional, como redirecionar ou limpar o estado
+            },
+            (error: any) => {
+              console.error('Erro ao excluir carrinho:', error);
+            }
+          );
+        },
+        (error: any) => {
+          console.error('Erro ao excluir itens do carrinho:', error);
+        }
+      );
+    } else {
+      console.error('Carrinho não encontrado');
+    }
+  }
 
   ngOnInit(): void {
     this.cartService.pegarItensCarrinho().subscribe(

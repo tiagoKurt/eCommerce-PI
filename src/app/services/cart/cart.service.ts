@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../../types/product';
 import { CookieService } from 'ngx-cookie-service';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin, switchMap } from 'rxjs';
 import { Carrinho, CarrinhoResponseSave, ItensCarrinho } from '../../types/carrinho';
 
 @Injectable({
@@ -68,6 +68,19 @@ export class CartService {
     return this.http.get<Carrinho>(this.apiUrl + session);
   }
 
+  excluirItensCarrinho(idCarrinho: number): Observable<void[]> {
+    return this.http.get<Carrinho>(this.apiUrl + idCarrinho).pipe(
+      switchMap((carrinho: Carrinho) => {
+        const deleteRequests = carrinho.itens.map((item: ItensCarrinho) => this.http.delete<void>(this.apiItens + item.id));
+        return forkJoin(deleteRequests);
+      })
+    );
+  }
+
+  excluirCarrinho(idCarrinho: number): Observable<void> {
+    return this.http.delete<void>(this.apiUrl + idCarrinho);
+  }
+
   aumentarQuantidade(item : ItensCarrinho){
     this.http.get<ItensCarrinho>(this.apiItens + item.id).subscribe(
       (itemResponse) => {
@@ -82,9 +95,8 @@ export class CartService {
         )
       }
     )
-
-
   }
+
   diminuirQuantidade(item : ItensCarrinho){
     this.http.get<ItensCarrinho>(this.apiItens + item.id).subscribe(
       (itemResponse) => {

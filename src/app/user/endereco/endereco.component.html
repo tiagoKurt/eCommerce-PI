@@ -18,7 +18,7 @@
     margin-top: 1.5rem;
   }
 
-  p-floatLabel input {
+  p-floatLabel input, p-floatLabel p-inputMask input {
     border: 1px solid rgb(60, 117, 134);
     padding: 1rem;
     border-radius: 4px;
@@ -32,20 +32,23 @@
 <div class="centered-container">
   <div class="flex-column gap-2">
     <p-floatLabel>
-      <input pInputText id="cep" [(ngModel)]="cep" />
-      <label for="nome">CEP</label>
+      <p-inputMask 
+        mask="99999-999" 
+        [(ngModel)]="cep" 
+        id="cep" />
+      <label for="cep">CEP</label>
     </p-floatLabel>
     <span>
-    <p-button
-    label="Buscar Cep"
-    [raised]="true"
-    severity="success"
-    (click)="pegarCep()"
-    ></p-button>
-  </span>
+      <p-button
+        label="Buscar Cep"
+        [raised]="true"
+        severity="success"
+        (click)="pegarCep()"
+      ></p-button>
+    </span>
     <p-floatLabel>
       <input pInputText id="rua" [(ngModel)]="rua" />
-      <label for="cep">Rua</label>
+      <label for="rua">Rua</label>
     </p-floatLabel>
     <p-floatLabel>
       <input pInputText id="cidade" [(ngModel)]="cidade" />
@@ -57,7 +60,7 @@
     </p-floatLabel>
     <p-floatLabel>
       <input pInputText id="numero" [(ngModel)]="numero" />
-      <label for="numero">Numero</label>
+      <label for="numero">Número</label>
     </p-floatLabel>
     <p-floatLabel>
       <input pInputText id="bairro" [(ngModel)]="bairro" />
@@ -69,7 +72,7 @@
     </p-floatLabel>
     <div class="btn-container">
       <a routerLink="/usuario/endereco">
-        <p-button label="Voltar" severity="contrast" />
+        <p-button label="Voltar" severity="contrast"></p-button>
       </a>
       <p-button
         label="Cadastrar"

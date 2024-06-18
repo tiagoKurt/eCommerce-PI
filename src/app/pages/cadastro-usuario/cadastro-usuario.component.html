@@ -17,7 +17,7 @@
     margin-top: 1.5rem;
   }
 
-  p-floatLabel input {
+  p-floatLabel input{
     border: 1px solid lightblue;
     padding: 0.5rem;
     border-radius: 4px;
@@ -33,30 +33,55 @@
 <div class="centered-container">
   <div class="flex-column gap-2">
     <p-floatLabel>
-      <input pInputText id="nome" [(ngModel)]="nome" />
+      <input 
+        pInputText 
+        id="alpha" 
+        [(ngModel)]="nome" 
+        pattern="[a-zA-Z ]*" 
+        (keypress)="validateNameInput($event)" />
       <label for="nome">Nome</label>
     </p-floatLabel>
     <p-floatLabel>
-      <input pInputText id="cpf" [(ngModel)]="cpf" />
+      <p-inputMask 
+        mask="999.999.999-99" 
+        [(ngModel)]="cpf" 
+        id="cpf" />
       <label for="cpf">CPF</label>
     </p-floatLabel>
     <p-floatLabel>
-      <input pInputText id="email" [(ngModel)]="email" />
+      <input 
+        pInputText 
+        id="email" 
+        [(ngModel)]="email" 
+        (keypress)="preventSpace($event)" />
       <label for="email">Email</label>
     </p-floatLabel>
     <p-floatLabel>
-      <input pInputText id="email" [(ngModel)]="telefone" />
-      <label for="email">Telefone</label>
+      <p-inputMask 
+        mask="(99) 99999-9999" 
+        [(ngModel)]="telefone" 
+        id="telefone" />
+      <label for="telefone">Telefone</label>
     </p-floatLabel>
     <p-floatLabel>
-      <input type="password" pInputText id="senha" [(ngModel)]="senha" />
+      <input 
+        type="password" 
+        pInputText 
+        id="senha" 
+        [(ngModel)]="senha" 
+        (keypress)="preventSpace($event)"/>
+        
       <label for="senha">Senha</label>
     </p-floatLabel>
     <div class="btn-container">
       <a routerLink="/login">
-        <p-button label="Voltar" severity="contrast" />
+        <p-button label="Voltar" severity="contrast"></p-button>
       </a>
-      <p-button label="Cadastrar" [raised]="true" severity="success" (click)="salvarUsuario()"></p-button>
+      <p-button 
+        label="Cadastrar" 
+        [raised]="true" 
+        severity="success" 
+        (click)="salvarUsuario()"></p-button>
     </div>
   </div>
 </div>

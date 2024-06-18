@@ -53,7 +53,10 @@
         </div>
         <div class="input-group">
           <p-floatLabel>
-            <input pInputText id="cep" [(ngModel)]="cep" />
+            <p-inputMask 
+        mask="99999-999" 
+        [(ngModel)]="cep" 
+        id="cep" />
             <label for="cep">CEP</label>
           </p-floatLabel>
         </div>
@@ -71,7 +74,7 @@
 
       <ng-template pTemplate="footer">
         <div class="button-group">
-          <p-button label="Excluir carrinho" severity="secondary" class="w-full" styleClass="w-full" icon="pi pi-trash"></p-button>
+          <p-button label="Excluir carrinho" severity="secondary" class="w-full" styleClass="w-full" icon="pi pi-trash" (onClick)="excluirCarrinho()"></p-button>
           <p-button label="Finalizar compra" class="w-full" styleClass="w-full" icon="pi pi-shopping-cart" (onClick)="finalizarCarrinho()"></p-button>
         </div>
       </ng-template>

@@ -34,6 +34,7 @@ import { Router } from '@angular/router';
   providers: [MessageService]
 })
 export class CadastroUsuarioComponent {
+  blockSpace: RegExp = /[^s]/;
   nome: string = '';
   cpf: string = '';
   email: string = '';
@@ -71,6 +72,19 @@ export class CadastroUsuarioComponent {
         console.error('Erro ao Criar Usuario:', error);
       }
     );
+  }
+
+  validateNameInput(event: KeyboardEvent) {
+    const inputChar = String.fromCharCode(event.charCode);
+    if (!/^[a-zA-Z ]*$/.test(inputChar)) {
+      event.preventDefault();
+    }
+  }
+
+  preventSpace(event: KeyboardEvent) {
+    if (event.charCode === 32) {
+      event.preventDefault();
+    }
   }
 
 }
