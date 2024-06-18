@@ -10,20 +10,27 @@ import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
 import { HttpClientModule } from '@angular/common/http';
 import { CardModule } from 'primeng/card';
+import { CadastroUsuarioComponent } from './pages/cadastro-usuario/cadastro-usuario.component';
+import { RippleModule } from 'primeng/ripple';
+import { ToastModule } from 'primeng/toast';
 
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule,
+  imports: [
     HttpClientModule,
-    BrowserAnimationsModule,
-    BrowserModule,
     AppRoutingModule,
     FormsModule,
     InputTextModule,
     ButtonModule,
     CardModule,
-    TableModule],
+    TableModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    ToastModule,
+    RippleModule,
+    ],
   bootstrap: [AppComponent],
+  
 })
 export class AppModule {}

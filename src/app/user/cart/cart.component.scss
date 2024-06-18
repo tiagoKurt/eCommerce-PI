@@ -1,56 +1,66 @@
-.custom-card-header {
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.5em;
-  margin-top: 1rem; /* Ajuste conforme necessário */
+.page-container {
+  display: flex;
+  justify-content: space-between; /* Espaço entre os elementos */
+  align-items: center; /* Centraliza verticalmente */
+  height: 100vh; /* Ocupa toda a altura da viewport */
+  padding: 0 50px; /* Espaçamento nas laterais */
 }
 
-.custom-input-text {
-  width: 50%; /* Reduzido para metade do tamanho */
-  margin: 5px auto; /* Centraliza o input */
-  padding: 5px;
-  display: block; /* Garante que o input se comporta como um bloco */
+.card-wrapper {
+  width: 360px; /* Largura fixa do card */
+}
+
+.left-card {
+  margin-left: auto; /* Empurra o card para o canto esquerdo */
+}
+
+.center-content {
+  text-align: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+.input-group {
+  display: flex;
+  justify-content: center; /* Centraliza o input e o botão */
+  align-items: center;
+  margin-bottom: 20px; /* Espaço entre o input e a mensagem de frete */
 }
 
 .custom-button {
-  margin-top: 10px;
-  width: 50%; /* Reduzido para metade do tamanho */
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%; /* Largura total do botão */
+  margin-top: 10px; /* Espaço acima do botão */
 }
 
 .frete-message {
   font-weight: bold;
   color: white;
-  display: block; /* Garante que a mensagem se comporta como um bloco */
+  display: block; /* Exibe como bloco para centralizar */
   text-align: center;
 }
 
-.card-container {
+.button-group {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  height: 100vh;
-  margin-right: 50px; /* Ajuste conforme necessário */
-}
-
-.footer-button {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  justify-content: space-between; /* Espaço entre os botões */
+  margin-top: 20px; /* Espaço acima dos botões */
 }
 
 .p-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%; /* Garante que o card ocupe toda a altura disponível */
 }
 
-.center-content {
+.preco-total-wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; /* Centraliza verticalmente o conteúdo */
-  height: 100%; /* Preenche todo o espaço disponível verticalmente */
+  align-items: center; /* Centraliza verticalmente */
+  margin-bottom: 10px; /* Espaço abaixo do preço total */
+}
+
+.preco-total {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.valor-preco {
+  margin-left: 5px; /* Espaço entre a label e o valor */
 }

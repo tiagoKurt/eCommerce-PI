@@ -2,25 +2,36 @@
 
 <app-produtos-carrinho></app-produtos-carrinho>
 
-<!-- <div fxLayout="row" fxLayoutAlign="center center">
-  <div class="card-container">
-    <p-dataView #dv>
-      <ng-template pTemplate="list" let-product>
+<div class="d-flex justify-content-center">
+  <div class="flex justify-content-center w-full">
+    <p-dataView #dv [value]="itensCarrinho" class="w-full max-w-80rem">
+      <ng-template pTemplate="list" let-itensCarrinho>
         <div class="grid grid-nogutter">
-          <div class="col-12" *ngFor="let item of product; let first = first" class="col-12">
+          <div class="col-12" *ngFor="let item of itensCarrinho; let first = first" class="col-12">
             <div class="flex flex-column sm:flex-row sm:align-items-center p-4 gap-3" [ngClass]="{ 'border-top-1 surface-border': !first }">
+              <div class="flex align-items-center">
+                
+              </div>
+              <div class="md:w-10rem relative">
+                <img class="block xl:block mx-auto border-round w-full" [src]="item.foto" [alt]="item.nome" />
+              </div>
               <div class="flex flex-column md:flex-row justify-content-between md:align-items-center flex-1 gap-4">
                 <div class="flex flex-row md:flex-column justify-content-between align-items-start gap-2">
                   <div>
-                    <span class="font-medium text-secondary text-sm">{{ item.categoria }}</span>
-                    <div class="text-lg font-medium text-900 mt-2">{{ item.nome }}</div>
+                    <span class="font-medium text-secondary text-sm">{{ item.descricao }}</span>
+                  </div>
+                  <div class="surface-100 p-1" style="border-radius: 30px">
+                    <div class="surface-0 flex align-items-center gap-2 justify-content-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
+                      <i class="pi pi-star-fill text-yellow-500"></i>
+                    </div>
                   </div>
                 </div>
                 <div class="flex flex-column md:align-items-end gap-5">
-                  <span class="text-xl font-semibold text-900">{{ '$' + item.preco }}</span>
+                  <span class="text-xl font-semibold text-900">{{ '$' + item.precoTotal }}</span>
                   <div class="flex flex-row-reverse md:flex-row gap-2">
-                    <p-button icon="pi pi-heart" [outlined]="true" />
-                    <p-button icon="pi pi-shopping-cart" class="flex-auto md:flex-initial white-space-nowrap" label="Adicionar ao Carrinho" ></p-button>
+                    Quantidade:  
+                    <p-button icon="pi pi-minus" class="flex-auto md:flex-initial white-space-nowrap" [outlined]="true"/>
+                    <p-button icon="pi pi-plus" class="flex-auto md:flex-initial white-space-nowrap" />
                   </div>
                 </div>
               </div>
@@ -29,84 +40,41 @@
         </div>
       </ng-template>
     </p-dataView>
-
-    <div class="container-fluid">
-      <div class="row justify-content-end">
-        <div class="col-lg-6">
-          <div class="card flex justify-content-center">
-            <p-card [style]="{ width: '620px' }">
-                <div class="m-0 center-content">
-                <label>CEP: </label>
-                <input
-                  type="text"
-                  class="custom-input-text"
-                  mask="99999-999"
-                  placeholder="12345-678"
-                  [(ngModel)]="cep"
-                  (input)="formatCep()"
-                />
-                <button
-                  type="button"
-                  pButton
-                  icon="pi pi-check"
-                  class="p-button custom-button"
-                  (click)="calcularFrete()"
-                >
-                  Calcular Frete
-                </button>
-                <br /><br />
-                <span *ngIf="freteCalculado" class="frete-message">
-                  <label> Correios: R$20,00 - Entrega em 10 dias. </label>
-                </span>
-                <br /><br />
-                <br /><br />
-                <ng-template pTemplate="header">
-                  <div class="custom-card-header">
-                    Subtotal (*colocar quantidade* produto):
-                  </div>
-                </ng-template>
-              </div>
-              <ng-template pTemplate="footer">
-                <div class="footer-button">
-                  <p-button
-                    label="Finalizar Carrinho"
-                    class="w-full custom-button"
-                    styleClass="w-full p-button-success"
-                  ></p-button>
-                </div>
-              </ng-template>
-            </p-card>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
-</div> -->
+</div>
 
-
-
-<div class="container">
-  @for (product of itensCarrinho; track product.id){
-    <div class="card-wrapper">
-      <p-card  [style]="{ width: '360px' }">
-        <ng-template pTemplate="header">
-        </ng-template>
-        <div class="card-content">
-          <h3>{{ product.nome }}</h3>
-          <p>{{ product.descricao }}</p>
+<div class="page-container">
+  <div class="card-wrapper left-card">
+    <p-card header="Detalhes do pedido" subheader="" [style]="{ width: '360px' }">
+      <div class="center-content">
+        <div class="preco-total-wrapper">
+          <label class="preco-total" style="font-size: 18px; font-weight: bold; margin-right: 10px;">Preço total:</label>
+          <span class="valor-preco">R$ 150,00</span>
         </div>
-        <ng-template pTemplate="footer">
-          <div class="card-button">
-            <p-button
-              label="Adicionar ao Carrinho"
-              class="w-full"
-              styleClass="w-full"
-              icon="pi pi-shopping-cart"
-              
-            ></p-button>
-          </div>
-        </ng-template>
-      </p-card>
-    </div>
-  }
+        <div class="input-group">
+          <p-floatLabel>
+            <input pInputText id="cep" [(ngModel)]="cep" />
+            <label for="cep">CEP</label>
+          </p-floatLabel>
+        </div>
+        
+        <div class="center-content">
+          <p-button label="Calcular frete" severity="secondary" class="w-full custom-button" styleClass="w-full custom-button" icon="pi pi-check" (click)="calcularFrete()"></p-button>
+        </div>
+
+        <br />
+
+        <span *ngIf="freteCalculado" class="frete-message">
+          <label> Correios: R$20,00 - Entrega em 10 dias. </label>
+        </span>
+      </div>
+
+      <ng-template pTemplate="footer">
+        <div class="button-group">
+          <p-button label="Excluir carrinho" severity="secondary" class="w-full" styleClass="w-full" icon="pi pi-trash"></p-button>
+          <p-button label="Finalizar compra" class="w-full" styleClass="w-full" icon="pi pi-shopping-cart" (onClick)="finalizarCarrinho()"></p-button>
+        </div>
+      </ng-template>
+    </p-card>
+  </div>
 </div>

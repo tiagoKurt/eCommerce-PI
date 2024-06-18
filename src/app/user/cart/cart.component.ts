@@ -11,7 +11,10 @@ import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { CartService } from '../../services/cart/cart.service';
 import { Carrinho, ItensCarrinho } from '../../types/carrinho';
-
+import { CheckboxModule } from 'primeng/checkbox';
+import { Router } from '@angular/router';
+import { InputTextModule } from 'primeng/inputtext';
+import { FloatLabelModule } from 'primeng/floatlabel';
 @Component({
   selector: 'app-cart',
   standalone: true,
@@ -24,15 +27,19 @@ import { Carrinho, ItensCarrinho } from '../../types/carrinho';
     DataViewModule,
     TableModule,
     TagModule,
+    CheckboxModule,
+    InputTextModule, FloatLabelModule
   ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
 })
 export class CartComponent implements OnInit{
-  
+  cep : string = '';
+  checked: boolean = false;
+
    itensCarrinho: ItensCarrinho[] =  [];
 
-  constructor( private cartService : CartService) {
+  constructor( private cartService : CartService, private router: Router) {
   }
 
 
@@ -47,9 +54,12 @@ export class CartComponent implements OnInit{
     );
   }
 
+  finalizarCarrinho(){
+    this.router.navigate(['/usuario/endereco']);
+  }
 
   freteCalculado = false;
-  cep: string = '';
+  cep2 = '';
 
   calcularFrete() {
     this.freteCalculado = true;

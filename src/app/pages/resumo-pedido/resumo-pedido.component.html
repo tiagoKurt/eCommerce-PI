@@ -1,0 +1,59 @@
+<app-menubar-usuario></app-menubar-usuario>
+
+<!-- <div class="card xl:flex xl:justify-content-center">
+    <p-orderList 
+        [value]="itensCarrinho" 
+        [listStyle]="{ height: '25rem' }" 
+        header="Lista dos produtos">
+            <ng-template let-item pTemplate="item">
+                <div class="flex flex-wrap p-2 align-items-center gap-3">
+                    <img 
+                        src="{ item.foto }" 
+                        [alt]="item.nome" 
+                        class="w-4rem shadow-2 flex-shrink-0 border-round" />
+                            <div class="flex-1 flex flex-column gap-2">
+                                <span class="font-bold">{{ item.nome }}</span>
+                                <div class="flex align-items-center gap-2">
+                                    <i class="pi pi-tag text-sm"></i>
+                                    <span>
+                                        {{ item.descricao }}
+                                    </span>
+                                </div>
+                            </div>
+                    <span class="font-bold text-900">
+                        {{ '$' + item.precoTotal }}
+                    </span>
+                </div>
+            </ng-template>
+    </p-orderList>
+</div> -->
+
+<div class="page-container">
+  <div class="card-wrapper">
+    <p-card header="Endereço selecionado:" [style]="{ width: '360px' }">
+      <p class="rua">Rua:</p>
+      <p class="cep">Cep:</p>
+      <p class="cidade">Cidade:</p>
+      <p class="bairro">Bairro:</p>
+      <p class="complemento">Complemento:</p>
+      <ng-template pTemplate="footer">
+        <div class="button-group">
+          <p-button label="Alterar endereço" severity="secondary" class="w-full" styleClass="w-full" icon="pi pi-file-edit" />
+        </div>
+      </ng-template>
+    </p-card>
+  </div>
+
+  <div class="card-wrapper right-card">
+    <p-card header="Detalhes do pedido" subheader="informações detalhadas" [style]="{ width: '360px' }">
+      <p class="preco-total">Preço total:</p>
+      <p class="valor-frete">Valor do frete:</p>
+      <ng-template pTemplate="footer">
+        <div class="button-group">
+          <p-button label="Cancelar" severity="secondary" class="w-full" styleClass="w-full" icon="pi pi-trash" />
+          <p-button label="Finalizar compra" class="w-full" styleClass="w-full" icon="pi pi-shopping-cart" />
+        </div>
+      </ng-template>
+    </p-card>
+  </div>
+</div>

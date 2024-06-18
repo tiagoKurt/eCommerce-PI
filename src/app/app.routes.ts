@@ -11,6 +11,8 @@ import { EnderecoComponent } from './user/endereco/endereco.component';
 import { CartComponent } from './user/cart/cart.component';
 import { ProductListComponent } from './admin/product-list/product-list.component';
 import { ListaPedidosComponent } from './component/lista-pedidos/lista-pedidos.component';
+import { SelecionarEnderecoComponent } from './pages/selecionar-endereco/selecionar-endereco.component';
+import { ResumoPedidoComponent } from './pages/resumo-pedido/resumo-pedido.component';
 
 export const routes: Routes = [
   { path: 'admin', loadChildren: () => AdminModule },
@@ -25,5 +27,7 @@ export const routes: Routes = [
   { path: 'gestor', component: ProductListComponent },
   { path: 'gestor/produtos', component: ProductListComponent },
   { path: 'usuario/pedidos', component: PedidosComponent },
+  { path: 'usuario/endereco', component: SelecionarEnderecoComponent },
+  { path: 'usuario/finalizarPedido', component: ResumoPedidoComponent },
   { path: '**', redirectTo: '/login', pathMatch: 'full' },
 ];

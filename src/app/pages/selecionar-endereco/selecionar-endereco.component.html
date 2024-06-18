@@ -1,0 +1,43 @@
+<app-menubar-usuario></app-menubar-usuario>
+
+<div class="container">
+  @for (enderecos of enderecos; track enderecos.id){
+    <div class="card-wrapper">
+      <p-card [style]="{ width: '360px' }">
+        <ng-template pTemplate="header">
+        </ng-template>
+        <div class="card-content">
+          <h3>{{ enderecos.cep }}</h3>
+          <p>{{ enderecos.rua }}</p>
+          <h2 class="cidade">{{ enderecos.cidade }}</h2>
+          <h2 class="bairro">{{ enderecos.bairro }}</h2>
+          <h2 class="complemento">{{ enderecos.complemento }}</h2>
+          <h2 class="uf">{{ enderecos.uf }}</h2>
+        </div>
+        <ng-template pTemplate="footer">
+          <div class="card-button">
+            <p-button
+              label="Excluir"
+              class="w-full"
+              styleClass="w-full"
+              icon="pi pi-trash"
+              [outlined]="true"
+            ></p-button>
+            <p-button
+              label="Selecionar endereço"
+              class="w-full"
+              styleClass="w-full"
+              icon="pi pi-check"
+              (onClick)="irParaResumo()"
+            ></p-button>
+          </div>
+        </ng-template>
+      </p-card>
+    </div>
+  }
+</div>
+
+<div class="button-container">
+  <p-button icon="pi pi-undo" label="Voltar" [raised]="true" severity="secondary" [outlined]="true" (onClick)="voltarCarrinho()"></p-button>
+  <p-button icon="pi pi-plus" label="Cadastrar endereço" [raised]="true" severity="secondary" (onClick)="irParaCadastroEndereco()"></p-button>
+</div>

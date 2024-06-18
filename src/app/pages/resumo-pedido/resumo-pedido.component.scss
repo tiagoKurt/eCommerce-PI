@@ -1,0 +1,39 @@
+.page-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+}
+
+.card-wrapper {
+  margin-right: 20px; 
+}
+
+.right-card {
+  margin-left: auto; 
+}
+
+p-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; 
+}
+
+.preco-total {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 20px; 
+}
+
+.valor-frete {
+  margin-top: 10px; 
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+}

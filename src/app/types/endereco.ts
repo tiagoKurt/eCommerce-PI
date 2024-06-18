@@ -1,4 +1,5 @@
 export type Endereco = {
+    id: number;
     cep: string ,
     rua: string ,
     cidade: string ,

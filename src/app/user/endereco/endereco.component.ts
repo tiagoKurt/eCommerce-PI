@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { MessageService } from 'primeng/api';
 import { EnderecoService } from '../../services/endereco/endereco.service';
 import { Endereco } from '../../types/endereco';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-endereco',
@@ -40,7 +41,8 @@ export class EnderecoComponent {
   complemento: string = '';
   bairro : string = ''; 
   id_usuario : number = 0
-  constructor(private enderecoService: EnderecoService) {}
+  id : number = 0
+  constructor(private enderecoService: EnderecoService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -59,8 +61,11 @@ export class EnderecoComponent {
       }
     );
   }
+
+
   salvarEndereco() {
     const endereco: Endereco = {
+      id : this.id,
       cep : this.cep,
       rua: this.rua,
       cidade: this.cidade, 
@@ -74,10 +79,14 @@ export class EnderecoComponent {
     this.enderecoService.salvar(endereco).subscribe(
       (response) => {
         console.log('Endereco cadastrado com sucesso!', response);
+        this.router.navigate(['/cadastro/endereco'])
+        
       },
       (error) => {
         console.error('Erro ao cadastrar endereco:', error);
       }
     );
   }
+
+  
 }
