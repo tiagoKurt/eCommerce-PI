@@ -31,14 +31,17 @@
   <div class="card-wrapper">
    
     <p-card let="enderecos" header="Endereço selecionado:"  [style]="{ width: '360px' }">
-      <p class="rua">Rua: {{ enderecos?.rua }}</p>
-      <p class="cep">Cep: {{ enderecos?.cep }}</p>
-      <p class="cidade">Cidade: {{ enderecos?.cidade }}</p>
-      <p class="bairro">Bairro: {{ enderecos?.bairro }}</p>
-      <p class="complemento">Complemento: {{ enderecos?.complemento }}</p>
+      <div class="card-content">
+        <h3>CEP: <span class="highlight">{{ enderecos.cep }}</span></h3>
+        <h3>Rua: <span class="highlight">{{ enderecos.rua }}</span></h3>
+        <h3 class="cidade">Cidade: <span class="highlight">{{ enderecos.cidade }}</span></h3>
+        <h3 class="bairro">Bairro: <span class="highlight">{{ enderecos.bairro }}</span></h3>
+        <h3 class="complemento">Complemento: <span class="highlight">{{ enderecos.complemento }}</span></h3>
+        <h3 class="uf">UF: <span class="highlight">{{ enderecos.uf }}</span></h3>
+      </div>
       <ng-template pTemplate="footer">
         <div class="button-group">
-          <p-button label="Alterar endereço" severity="secondary" class="w-full" styleClass="w-full" icon="pi pi-file-edit" />
+          <p-button label="Alterar endereço" severity="secondary" class="w-full" styleClass="w-full" icon="pi pi-file-edit" (click)="alterarEndereco()"/>
         </div>
       </ng-template>
     </p-card>
@@ -46,8 +49,10 @@
   </div>
 
     <div let="total"class="card-wrapper right-card">
-      <p-card header="Detalhes do pedido" subheader="informações detalhadas" [style]="{ width: '360px' }">
-        <p class="preco-total">Preço total: {{total}}</p>
+      <p-card header="Detalhes do pedido" subheader="" [style]="{ width: '360px' }">
+        <h3>Preço total: R$<span class="preco-total"> {{total}}</span></h3>
+        <h3>Valor Frete: R$<span class="preco-total"> 20,00</span></h3>
+
         <ng-template pTemplate="footer">
           <div class="button-group">
             <p-button label="Cancelar" severity="secondary" class="w-full" styleClass="w-full" icon="pi pi-trash" />

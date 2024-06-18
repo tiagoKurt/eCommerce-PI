@@ -40,11 +40,16 @@ export class ProductComponent {
   tipoProduto: string = '';
   imagem: string = '';
 
-  constructor(private produtoService: ProdutoService) {}
+  constructor(private produtoService: ProdutoService, private messageService : MessageService) {}
 
   ngOnInit(): void {}
 
   salvarProduto() {
+    if (!this.nome || !this.descricao || !this.preco || !this.quantidade || !this.tipoProduto || !this.imagem) {
+      this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Por favor, preencha todos os campos.' });
+      return;
+    }
+
     const produto: Product = {
       nome: this.nome,
       descricao: this.descricao,
@@ -56,11 +61,33 @@ export class ProductComponent {
 
     this.produtoService.salvar(produto).subscribe(
       (response) => {
-        console.log('Produto cadastrado com sucesso!', response);
+        this.showSuccess();
+        this.limparCampos();
       },
       (error) => {
-        console.error('Erro ao cadastrar produto:', error);
+
       }
     );
   }
+
+  showSuccess() {
+    this.messageService.add({ severity: 'success', summary: 'Sucesso!', detail: 'Produto foi cadastrado com sucesso!' });
+}
+
+
+limparCampos() {
+  this.nome = '';
+  this.descricao = '';
+  this.preco = '';
+  this.quantidade = '';
+  this.tipoProduto = '';
+  this.imagem = '';
+}
+
+validateNameInput(event: KeyboardEvent) {
+  const inputChar = String.fromCharCode(event.charCode);
+  if (!/^[a-zA-Z ]*$/.test(inputChar)) {
+    event.preventDefault();
+  }
+}
 }
