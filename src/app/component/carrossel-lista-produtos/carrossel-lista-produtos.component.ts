@@ -14,6 +14,7 @@ import { ProdutoService } from '../../services/produto/produto.service';
 import { Product } from '../../types/product';
 import { ListaCardsProdutosService } from '../../services/lista-cards-produtos/lista-cards-produtos.service';
 import { CartService } from '../../services/cart/cart.service';
+import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-carrossel-lista-produtos',
   standalone: true,
@@ -30,14 +31,14 @@ import { CartService } from '../../services/cart/cart.service';
     CarouselModule, ButtonModule, TagModule],
   templateUrl: './carrossel-lista-produtos.component.html',
   styleUrls: ['./carrossel-lista-produtos.component.scss'],
-  providers: [ProdutoService]
+  providers: [ProdutoService, MessageService]
 })
 export class CarrosselListaProdutosComponent implements OnInit {
   products: Product[] = [];
 
   responsiveOptions: any[] | undefined;
 
-  constructor(private produtosService: ListaCardsProdutosService, private cartService : CartService) {}
+  constructor(private produtosService: ListaCardsProdutosService, private cartService : CartService, private messageService : MessageService) {}
 
   ngOnInit(): void {
     this.responsiveOptions = [
@@ -69,5 +70,6 @@ export class CarrosselListaProdutosComponent implements OnInit {
   }
   adicionarCarrinho(product: Product) {
     this.cartService.adicionarCarrinho(product);
+    this.messageService.add({ severity: 'success', summary: 'Sucesso!', detail: 'Produto foi adicionado ao carrinho com sucesso!' });
   }
 }
