@@ -1,1 +1,30 @@
 <app-menubar-usuario></app-menubar-usuario>
+<div class="card">
+  <p-table [value]="pedidos" [tableStyle]="{ 'min-width': '60rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Total</th>
+        <th>Status</th>
+        <th>Data</th>
+        <th>Id Carrinho</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-pedidos>
+      <tr>
+        <td>{{ pedidos.id }}</td>
+        <td>{{ pedidos.totalPedido }}</td>
+        <td>{{ pedidos.status }}</td>
+        <td>{{ pedidos.dataRegistro }}</td>
+        <td>{{ pedidos.carrinho.id }}</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      <div class="flex align-items-center justify-content-between">
+        No total são {{ pedidos ? pedidos.length : 0 }} produtos.
+      </div>
+    
+    </ng-template>
+</p-table>
+  </div>
+  

@@ -5,6 +5,8 @@ import { Endereco } from '../../types/endereco';
 import { Carrinho } from '../../types/carrinho';
 import { SourceTextModule } from 'vm';
 import { response } from 'express';
+import { Pedido } from '../../types/pedido';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -33,4 +35,8 @@ export class PedidoService {
     
   }
   
+  pegarPedidosUser(session : string): Observable<Pedido[]> {
+    return this.http.get<Pedido[]>(this.apiUrl + session);
+  }
+
 }

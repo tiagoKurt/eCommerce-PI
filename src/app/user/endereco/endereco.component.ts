@@ -81,8 +81,7 @@ export class EnderecoComponent {
 
     this.enderecoService.salvar(endereco).subscribe(
       (response) => {
-        console.log('Endereco cadastrado com sucesso!', response);
-        this.router.navigate(['/cadastro/endereco'])
+        this.router.navigate(['/usuario/endereco'])
         
       },
       (error) => {

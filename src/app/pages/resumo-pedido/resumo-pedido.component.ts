@@ -46,19 +46,11 @@ export class ResumoPedidoComponent implements OnInit{
   
   ngOnInit(): void {
     
-
-    this.cartService.pegarItensCarrinho().subscribe(
-      (data: Carrinho) => {
-        this.itensCarrinho = data.itens;
-        this.itensCarrinho?.map((valor)=>{this.total+=valor.precoTotal});
-      },
-      (error: any) => {
-        console.error('Erro ao buscar produtos:', error);
-      }
-    );
+    this.carrinho.itens.map((valor)=>{this.total+=(valor.precoTotal * valor.quantidade)});
   }
 
   fazerPedido(){
    this.pedidoService.fazerPedido(this.enderecos, this.total, this.carrinho)
+   this.router.navigate(['/usuario'])
   }
 }

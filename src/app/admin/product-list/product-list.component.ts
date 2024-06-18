@@ -34,6 +34,7 @@ export class ProductListComponent {
     this.produtosService.pegarOrdenado('').subscribe(
       (data: Product[]) => {
         this.products = data;
+        console.log(this.products)
       },
       (error: any) => {
         console.error('Erro ao buscar produtos:', error);

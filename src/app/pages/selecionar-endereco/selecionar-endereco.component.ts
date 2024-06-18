@@ -42,7 +42,7 @@ export class SelecionarEnderecoComponent {
 
 
   irParaCadastroEndereco(){
-    this.router.navigate(['/cadastro/endereco'])
+    this.router.navigate(['/cadastro/endereco'], {state : {dataCarrinho : this.carrinho} })
   }
 
   voltarCarrinho(){
