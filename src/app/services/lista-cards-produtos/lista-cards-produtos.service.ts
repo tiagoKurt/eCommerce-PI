@@ -14,11 +14,11 @@ export class ListaCardsProdutosService {
   pegarOrdenado(tipo : string): Observable<Product[]>{
     let url = ''
     if (tipo != ''){
-      url = this.apiUrl + tipo
+      url = this.apiUrl +"gestor/"+ tipo
 
     }
     else{
-      url =  'http://localhost:8080/api/produto/'
+      url =  'http://localhost:8080/api/produto/gestor/'
     }
     return this.http.get<Product[]>(url)
   }

@@ -31,7 +31,7 @@ export class ProductListComponent {
   constructor(private produtosService: ListaCardsProdutosService) {}
 
   ngOnInit(): void {
-    this.produtosService.pegarProdutos().subscribe(
+    this.produtosService.pegarOrdenado('').subscribe(
       (data: Product[]) => {
         this.products = data;
       },
