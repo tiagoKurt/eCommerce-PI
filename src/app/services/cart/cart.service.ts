@@ -9,8 +9,8 @@ import { Carrinho, CarrinhoResponseSave, ItensCarrinho } from '../../types/carri
   providedIn: 'root'
 })
 export class CartService {
-  apiUrl = 'http://localhost:8080/api/carrinho/';
-  apiItens = "http://localhost:8080/api/item/carrinho/"
+  apiUrl = 'http://23.111.172.66:34202/api/carrinho/';
+  apiItens = "http://23.111.172.66:34202/api/item/carrinho/"
 
 
   constructor(private http: HttpClient, private cookie : CookieService) { }

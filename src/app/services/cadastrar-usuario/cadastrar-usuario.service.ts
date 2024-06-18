@@ -7,7 +7,7 @@ import { CadastroUsuario } from '../../types/cadastro-usuarios';
 })
 export class CadastrarUsuarioService {
 
-  apiUrl = 'http://localhost:8080/api/usuario/';
+  apiUrl = 'http://23.111.172.66:34202/api/usuario/';
 
   constructor(private http: HttpClient) { }
 

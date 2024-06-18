@@ -14,6 +14,7 @@ import { Endereco } from '../../types/endereco';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { InputMaskModule } from 'primeng/inputmask';
+import { Carrinho } from '../../types/carrinho';
 
 @Component({
   selector: 'app-endereco',
@@ -45,7 +46,16 @@ export class EnderecoComponent {
   bairro : string = ''; 
   session_token : string = '';
   id : number = 0
-  constructor(private enderecoService: EnderecoService, private router: Router, private cookie : CookieService, private messageService : MessageService) {}
+
+  carrinho : Carrinho = {
+    itens : [],
+    id_carrinho: 0,
+    status: ''
+  }
+  constructor(private enderecoService: EnderecoService, private router: Router, private cookie : CookieService, private messageService : MessageService) {
+    const navigation = this.router.getCurrentNavigation();
+    this.carrinho = navigation?.extras?.state?.['dataCarrinho']
+  }
 
   ngOnInit(): void {}
 
@@ -65,6 +75,10 @@ export class EnderecoComponent {
     );
   }
 
+  voltarEndereco(){
+    console.log(this.carrinho)
+    this.router.navigate(['/usuario/endereco'], { state: { data: this.carrinho } });
+  }
 
   salvarEndereco() {
     if (!this.cep || !this.rua || !this.cidade || !this.uf || !this.numero || !this.bairro) {

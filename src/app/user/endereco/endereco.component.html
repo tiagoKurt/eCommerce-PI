@@ -71,9 +71,7 @@
       <label for="complemento">Complemento</label>
     </p-floatLabel>
     <div class="btn-container">
-      <a routerLink="/usuario/endereco">
-        <p-button label="Voltar" severity="contrast"></p-button>
-      </a>
+        <p-button label="Voltar" (click)="voltarEndereco()"severity="contrast"></p-button>
       <p-toast/>
       <p-button
         label="Cadastrar"

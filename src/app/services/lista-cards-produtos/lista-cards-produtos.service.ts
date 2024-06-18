@@ -7,7 +7,7 @@ import { Product } from '../../types/product';
   providedIn: 'root',
 })
 export class ListaCardsProdutosService {
-  apiUrl = 'http://localhost:8080/api/produto/';
+  apiUrl = 'http://23.111.172.66:34202/api/produto/';
 
   constructor(private http: HttpClient) {}
 
@@ -18,7 +18,7 @@ export class ListaCardsProdutosService {
 
     }
     else{
-      url =  'http://localhost:8080/api/produto/gestor/'
+      url =  'http://23.111.172.66:34202/api/produto/gestor/'
     }
     return this.http.get<Product[]>(url)
   }

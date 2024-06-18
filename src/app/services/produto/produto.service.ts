@@ -10,7 +10,7 @@ export class AppModule { }
   providedIn: 'root'
 })
 export class ProdutoService {
-  apiUrl = 'http://localhost:8080/api/produto/';
+  apiUrl = 'http://23.111.172.66:34202/api/produto/';
 
   constructor(private http: HttpClient) { }
 

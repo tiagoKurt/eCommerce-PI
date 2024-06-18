@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 })
 export class PedidoService {
 
-  apiUrl = 'http://localhost:8080/api/pedido/';
+  apiUrl = 'http://23.111.172.66:34202/api/pedido/';
 
   constructor(private http: HttpClient) { }
 
