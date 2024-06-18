@@ -1,0 +1,3 @@
+type Total = {
+    total: number
+}

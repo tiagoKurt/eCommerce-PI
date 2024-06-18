@@ -7,5 +7,5 @@ export type Endereco = {
     numero: string ,
     complemento: string ,
     bairro : string,
-    id_usuario : number,
+    session_token : string,
 }

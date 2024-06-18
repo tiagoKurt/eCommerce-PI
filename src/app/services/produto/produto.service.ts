@@ -10,12 +10,16 @@ export class AppModule { }
   providedIn: 'root'
 })
 export class ProdutoService {
-  apiUrl = 'http://23.111.172.66:34202/api/produto/';
+  apiUrl = 'http://localhost:8080/api/produto/';
 
   constructor(private http: HttpClient) { }
 
   salvar(produto : Product)  {
     return this.http.post(this.apiUrl, produto);
+  }
+
+  pegarProdutoIdItemCarrinho(id_item_carrinho : number) : Observable<Product>{
+    return this.http.get<Product>(this.apiUrl +"item/"+ id_item_carrinho)
   }
 
 }

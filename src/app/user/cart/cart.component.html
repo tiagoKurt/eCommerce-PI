@@ -29,9 +29,9 @@
                 <div class="flex flex-column md:align-items-end gap-5">
                   <span class="text-xl font-semibold text-900">{{ '$' + item.precoTotal }}</span>
                   <div class="flex flex-row-reverse md:flex-row gap-2">
-                    Quantidade:  
-                    <p-button icon="pi pi-minus" class="flex-auto md:flex-initial white-space-nowrap" [outlined]="true"/>
-                    <p-button icon="pi pi-plus" class="flex-auto md:flex-initial white-space-nowrap" />
+                    Quantidade: {{ item.quantidade }} 
+                    <p-button icon="pi pi-minus" class="flex-auto md:flex-initial white-space-nowrap" [outlined]="true" (click)="diminuirQuantidade(item)"/>
+                    <p-button icon="pi pi-plus" class="flex-auto md:flex-initial white-space-nowrap"  (click)="aumentarQuantidade(item)"/>
                   </div>
                 </div>
               </div>

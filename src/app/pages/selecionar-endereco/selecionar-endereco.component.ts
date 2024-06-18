@@ -5,6 +5,9 @@ import { EnderecoService } from '../../services/endereco/endereco.service';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { ResumoPedidoComponent } from '../resumo-pedido/resumo-pedido.component';
+import { Carrinho } from '../../types/carrinho';
 
 @Component({
   selector: 'app-selecionar-endereco',
@@ -15,19 +18,28 @@ import { Router } from '@angular/router';
 })
 export class SelecionarEnderecoComponent {
   enderecos: Endereco[] = [];
-
-  constructor(private enderecoService: EnderecoService, private router  : Router) {}
-
-  ngOnInit(): void {
-    this.enderecoService.pegarEnderecosUsuario().subscribe(
-      (data: Endereco[]) => {
-        this.enderecos = data;
-      },
-      (error: any) => {
-        console.error('Erro ao buscar endereços:', error);
-      }
-    );
+  carrinho : Carrinho ={
+    id_carrinho: 0,
+    itens: [],
+    status: ''
   }
+  
+  constructor(private enderecoService: EnderecoService, private router  : Router, private cookie : CookieService) {
+    const navigation = this.router.getCurrentNavigation();
+    this.carrinho = navigation?.extras?.state?.['data']
+  }
+  
+  ngOnInit(): void {
+    const session = this.cookie.get("SESSION_TOKEN")
+
+      this.enderecoService.pegarEnderecosUsuario(session).subscribe(
+        (data) =>{
+          this.enderecos = data
+          console.log(data)
+        }
+      )
+  }
+
 
   irParaCadastroEndereco(){
     this.router.navigate(['/cadastro/endereco'])
@@ -37,7 +49,8 @@ export class SelecionarEnderecoComponent {
     this.router.navigate(['/carrinho'])
   }
 
-  irParaResumo(){
-    this.router.navigate(['/finalizarPedido'])
+  irParaResumo(enderecos : Endereco){
+    console.log("CARRINHO SELECIONAR", this.carrinho)
+    this.router.navigate(['/usuario/finalizar'], { state: { data: enderecos , dataCarrinho : this.carrinho} });
   }
 }

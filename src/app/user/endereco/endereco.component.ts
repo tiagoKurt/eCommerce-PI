@@ -12,6 +12,7 @@ import { MessageService } from 'primeng/api';
 import { EnderecoService } from '../../services/endereco/endereco.service';
 import { Endereco } from '../../types/endereco';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-endereco',
@@ -40,9 +41,9 @@ export class EnderecoComponent {
   numero: string = ''; 
   complemento: string = '';
   bairro : string = ''; 
-  id_usuario : number = 0
+  session_token : string = '';
   id : number = 0
-  constructor(private enderecoService: EnderecoService, private router: Router) {}
+  constructor(private enderecoService: EnderecoService, private router: Router, private cookie : CookieService) {}
 
   ngOnInit(): void {}
 
@@ -73,7 +74,7 @@ export class EnderecoComponent {
       numero: this.numero, 
       complemento:this.complemento ,
       bairro : this.bairro,
-      id_usuario : this.id_usuario
+      session_token : this.cookie.get('SESSION_TOKEN'),
     };
 
     this.enderecoService.salvar(endereco).subscribe(

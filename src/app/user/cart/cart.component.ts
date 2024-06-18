@@ -15,6 +15,9 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { Router } from '@angular/router';
 import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
+import { ProdutoService } from '../../services/produto/produto.service';
+import { Product } from '../../types/product';
+import { SourceTextModule } from 'vm';
 @Component({
   selector: 'app-cart',
   standalone: true,
@@ -37,9 +40,18 @@ export class CartComponent implements OnInit{
   cep : string = '';
   checked: boolean = false;
 
-   itensCarrinho: ItensCarrinho[] =  [];
+  itensCarrinho: ItensCarrinho[] =  [];
 
-  constructor( private cartService : CartService, private router: Router) {
+  carrinho : Carrinho = {
+    itens : [],
+    id_carrinho : 0,
+    status : ''
+
+  }
+
+
+
+  constructor( private productService : ProdutoService, private cartService : CartService, private router: Router) {
   }
 
 
@@ -47,6 +59,7 @@ export class CartComponent implements OnInit{
     this.cartService.pegarItensCarrinho().subscribe(
       (data: Carrinho) => {
         this.itensCarrinho = data.itens;
+        this.carrinho = data
       },
       (error: any) => {
         console.error('Erro ao buscar produtos:', error);
@@ -55,7 +68,8 @@ export class CartComponent implements OnInit{
   }
 
   finalizarCarrinho(){
-    this.router.navigate(['/usuario/endereco']);
+    console.log("CART COMP",this.carrinho )
+    this.router.navigate(['/usuario/endereco'], { state: { data: this.carrinho } });
   }
 
   freteCalculado = false;
@@ -63,6 +77,26 @@ export class CartComponent implements OnInit{
 
   calcularFrete() {
     this.freteCalculado = true;
+  }
+
+  aumentarQuantidade(item : ItensCarrinho){
+    const produto  = this.productService.pegarProdutoIdItemCarrinho(item.id)
+    produto.subscribe(
+      (data : Product) =>{
+        console.log(data)
+        if(item.quantidade < data.quantidade){
+          item.quantidade +=1
+          this.cartService.aumentarQuantidade(item)
+      }else{
+        alert("Quantidade indisponível")
+      }
+    }
+    )
+    
+  }
+  diminuirQuantidade(item : ItensCarrinho){
+    item.quantidade -=1
+    this.cartService.diminuirQuantidade(item)
   }
 
   formatCep() {

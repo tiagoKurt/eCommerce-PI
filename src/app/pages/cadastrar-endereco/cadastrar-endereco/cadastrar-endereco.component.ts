@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './cadastrar-endereco.component.scss'
 })
 export class CadastrarEnderecoComponent {
-
+  
 }

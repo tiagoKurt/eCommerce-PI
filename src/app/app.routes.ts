@@ -28,6 +28,6 @@ export const routes: Routes = [
   { path: 'gestor/produtos', component: ProductListComponent },
   { path: 'usuario/pedidos', component: PedidosComponent },
   { path: 'usuario/endereco', component: SelecionarEnderecoComponent },
-  { path: 'usuario/finalizarPedido', component: ResumoPedidoComponent },
+  { path: 'usuario/finalizar', component: ResumoPedidoComponent },
   { path: '**', redirectTo: '/login', pathMatch: 'full' },
 ];

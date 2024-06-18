@@ -9,8 +9,8 @@ import { Carrinho, CarrinhoResponseSave, ItensCarrinho } from '../../types/carri
   providedIn: 'root'
 })
 export class CartService {
-  apiUrl = 'http://23.111.172.66:34202/api/carrinho/';
-  apiItens = "http://23.111.172.66:34202/api/item/carrinho/"
+  apiUrl = 'http://localhost:8080/api/carrinho/';
+  apiItens = "http://localhost:8080/api/item/carrinho/"
 
 
   constructor(private http: HttpClient, private cookie : CookieService) { }
@@ -21,7 +21,7 @@ export class CartService {
     const session = this.cookie.get('SESSION_TOKEN');
     const carrinho = this.http.get<Carrinho>(this.apiUrl + session).subscribe(
       (carrinho) => {
-        
+          console.log(carrinho)
         if(carrinho.id_carrinho && (carrinho.status === "PENDENTE" || carrinho.status === "PARCIALMENTE_CONCLUIDO")){
             console.log("if")
           if(carrinho.itens.map((itens) => itens.id ===product.id).includes(true)){
@@ -67,4 +67,38 @@ export class CartService {
     const session = this.cookie.get('SESSION_TOKEN');
     return this.http.get<Carrinho>(this.apiUrl + session);
   }
+
+  aumentarQuantidade(item : ItensCarrinho){
+    this.http.get<ItensCarrinho>(this.apiItens + item.id).subscribe(
+      (itemResponse) => {
+        itemResponse.quantidade = item.quantidade
+
+        console.log(itemResponse)
+        this.http.put<ItensCarrinho>(this.apiItens, itemResponse).subscribe(
+          
+          (response) => {
+            return response
+          }
+        )
+      }
+    )
+
+
+  }
+  diminuirQuantidade(item : ItensCarrinho){
+    this.http.get<ItensCarrinho>(this.apiItens + item.id).subscribe(
+      (itemResponse) => {
+        itemResponse.quantidade = item.quantidade
+
+        console.log(itemResponse)
+        this.http.put<ItensCarrinho>(this.apiItens, itemResponse).subscribe(
+          
+          (response) => {
+            return response
+          }
+        )
+      }
+    )
+  }
+
 }

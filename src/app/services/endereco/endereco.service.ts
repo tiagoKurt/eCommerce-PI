@@ -10,9 +10,10 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class EnderecoService {
 
-  apiUrl = 'http://23.111.172.66:34202/api/endereco/';
+  apiUrl = 'http://localhost:8080/api/endereco/';
 
-  constructor(private http: HttpClient, private cookie : CookieService) { }
+  constructor(private http: HttpClient) { }
+
 
   salvar(endereco : Endereco) {
     return this.http.post(this.apiUrl, endereco);
@@ -23,8 +24,8 @@ export class EnderecoService {
     return this.http.get<Endereco>(this.apiUrl + cep);
   }
 
-  pegarEnderecosUsuario(): Observable<Endereco[]> {
-    const session = this.cookie.get('SESSION_TOKEN');
-    return this.http.get<Endereco[]>(this.apiUrl + session);
+  pegarEnderecosUsuario(session : string): Observable<Endereco[]> {
+  
+    return this.http.get<Endereco[]>(this.apiUrl +"user/"+ session);
   }
 }
