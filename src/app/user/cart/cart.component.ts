@@ -121,8 +121,10 @@ export class CartComponent implements OnInit{
     
   }
   diminuirQuantidade(item : ItensCarrinho){
+    if (item.quantidade > 0){
     item.quantidade -=1
     this.cartService.diminuirQuantidade(item)
+    }
   }
 
   formatCep() {

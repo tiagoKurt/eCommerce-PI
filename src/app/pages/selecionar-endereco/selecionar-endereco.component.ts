@@ -31,13 +31,13 @@ export class SelecionarEnderecoComponent {
   
   ngOnInit(): void {
     const session = this.cookie.get("SESSION_TOKEN")
-
+      console.log(this.carrinho)
       this.enderecoService.pegarEnderecosUsuario(session).subscribe(
         (data) =>{
           this.enderecos = data
           console.log(data)
         }
-      )
+      ) 
   }
 
 
